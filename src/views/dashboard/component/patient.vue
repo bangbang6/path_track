@@ -139,7 +139,8 @@ export default{
   box-sizing: border-box;
   .title {
     color: #117fbe;
-    font-size: 13px;
+    font-size: 16px;
+    font-weight: bold;
   }
   .echarts {
     width: 100%;

@@ -2,7 +2,7 @@
   <div class="trans-list rangle">
     <div class="title">2021各科室收入支出情况</div>
     <div class="list">
-      <div class="list-item">
+      <div class="list-title">
         <div class="department">科室名称</div>
         <div class="income">总收入</div>
         <div class="payment">总支出</div>
@@ -102,19 +102,72 @@ export default {
   .title {
     color: #117fbe;
     font-size: 16px;
+    font-weight: bold;
   }
   .list {
     background-color: #091629;
     padding-left: 10px;
     box-sizing: border-box;
-    height: 80%;
+    height: 90%;
     overflow: hidden;
 
     color: gray;
     margin-top: 10px;
-    .list-item {
+    .list-title {
       display: flex;
       border-bottom: 1px solid gray;
+      // height: 12.5%;
+      padding: 6px 20px 6px 0;
+      align-items: center;
+      .department {
+        color: #74fbf5;
+        //flex: 1;
+        // height: 12.5%;
+
+        text-align: center;
+        font-size: 14px;
+        width: 20%;
+      }
+      .income {
+        color: #74fbf5;
+        //flex: 1;
+        // height: 12.5%;
+
+        text-align: center;
+        font-size: 14px;
+        width: 20%;
+      }
+      .payment {
+        color: #74fbf5;
+        //flex: 1;
+        // height: 12.5%;
+
+        text-align: center;
+        font-size: 14px;
+        width: 20%;
+      }
+      .time {
+        color: #74fbf5;
+        //flex: 1;
+        // height: 12.5%;
+
+        text-align: center;
+        font-size: 14px;
+        width: 40%;
+      }
+
+      .date {
+        width: 50%;
+      }
+      .overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .list-item {
+      display: flex;
+    //   border-bottom: 1px solid gray;
       // height: 12.5%;
       padding: 6px 20px 6px 0;
       align-items: center;
