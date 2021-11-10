@@ -14,15 +14,39 @@
     },
     mounted () {
       this.options = {
+        grid: {
+          right:'1%',
+          top:'5%'
+        },
+        textStyle:{
+          color:"#fff"
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
+        },
         yAxis: {
           type: 'category',
-          data: ['床位费', '西药', '化验', '检查', '治疗', '材料']
+          data: ['床位费', '西药', '化验', '检查', '治疗', '材料'],
+          inverse: true,
         },
         xAxis: {
-          type: 'value'
+          type: 'value',
+          splitLine: {
+            lineStyle: {
+              type: 'dashed'
+            }
+          }
         },
+
         series: [
           {
+            label: {
+              show: true,
+              position: 'right'
+            },
             data: [{
               value: 252294,
               itemStyle: {
@@ -56,7 +80,11 @@
             }],
             type: 'bar'
           }
-        ]}
+        ],
+        legend: {
+          show: true
+        },
+      }
     }
   }
 </script>
