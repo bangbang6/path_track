@@ -90,8 +90,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .trans-list {
-  margin-left: 10px;
-  margin-right: 10px;
+//   margin-left: 10px;
+//   margin-right: 10px;
 //   overflow-y: hidden;
 //   overflow: hidden;
   background-color: #091629;

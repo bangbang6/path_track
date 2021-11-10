@@ -112,11 +112,13 @@ export default {
       .percentage {
         background: #081326;
         flex: 1 0 20%;
+        margin-right: 5px;
       }
       .salary {
         flex: 1 0 20%;
         background:  #081326;
         margin-left: 2px;
+        margin-right: 5px;
       }
       .error {
         flex: 1 0 60%;
@@ -131,10 +133,12 @@ export default {
       .input-output {
         flex: 1;
         background: red;
+        margin-right: 5px;
       }
       .peopleNumber {
         flex: 1;
         background: green;
+        margin-right: 5px;
       }
       .yuyue {
         flex: 1;
