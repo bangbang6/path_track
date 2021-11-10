@@ -18,7 +18,6 @@ export default {
     padding: 0;
     width: 100%;
     height: 100%;
-    background: #081326;
   }
   .rangle {
     background: linear-gradient(to left, #74fbf5, #74fbf5) left top no-repeat,

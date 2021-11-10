@@ -13,7 +13,8 @@
       }
     },
     mounted () {
-      this.options = { yAxis: {
+      this.options = {
+        yAxis: {
           type: 'category',
           data: ['床位费', '西药', '化验', '检查', '治疗', '材料']
         },
@@ -22,7 +23,37 @@
         },
         series: [
           {
-            data: [252294,242627,242310,206128,199655,183620],
+            data: [{
+              value: 252294,
+              itemStyle: {
+                color: '#3a8ee6'
+              }
+            },{
+              value: 252294,
+              itemStyle: {
+                color: '#3a8ee6'
+              }
+            },{
+              value: 242310,
+              itemStyle: {
+                color: '#3a8ee6'
+              }
+            },{
+              value: 206128,
+              itemStyle: {
+                color: '#3a8ee6'
+              }
+            },{
+              value: 199655,
+              itemStyle: {
+                color: '#3a8ee6'
+              }
+            },{
+              value: 183620,
+              itemStyle: {
+                color: '#3a8ee6'
+              }
+            }],
             type: 'bar'
           }
         ]}

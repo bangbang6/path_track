@@ -112,6 +112,7 @@ export default {
       .salary {
         flex: 1 0 20%;
         background:  #081326;
+        margin-left: 2px;
       }
       .error {
         flex: 1 0 60%;

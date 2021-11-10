@@ -8,7 +8,7 @@
 <script>
 let mockData = [
   {
-    legondname: "channel2:24",
+    legendname: "channel2:24",
     value: 67,
     percent: "12%",
     itemStyle: {
@@ -17,7 +17,7 @@ let mockData = [
     name: "channel2:24 | 12%"
   },
   {
-    legondname: "channel3:26",
+    legendname: "channel3:26",
     value: 97,
     percent: "13%",
     itemStyle: {
@@ -27,17 +27,16 @@ let mockData = [
 
   },
   {
-    legondname: "channel4:30",
+    legendname: "channel4:30",
     value: 92,
     percent: "15%",
     itemStyle: {
       color: '#00CCFF'
     },
     name: "channel4:30 | 15%"
-
   },
   {
-    legondname: "channel5:28",
+    legendname: "channel5:28",
     value: 87,
     percent: "14%",
     itemStyle: {
@@ -47,7 +46,7 @@ let mockData = [
 
   },
   {
-    legondname: "channel6:50",
+    legendname: "channel6:50",
     value: 204,
     percent: "25%",
     itemStyle: {
@@ -57,7 +56,7 @@ let mockData = [
 
   },
   {
-    legondname: "channel1:38",
+    legendname: "channel1:38",
     value: 107,
     percent: "19%",
     itemStyle: {
@@ -114,13 +113,13 @@ export default {
      //      color: "white"
      //    }
      //  },
-      /* tooltip: {
+      tooltip: {
         trigger: 'item',
         formatter: function (params) {
-          const str = params.seriesName + '</br>' + params.marker + params.data.legondname + '</br>' + "数量: " + params.data.value + "</br>" + "占比:" + params.data.percent
+          const str = params.seriesName + '</br>' + params.marker + params.data.legendname + '</br>' + "数量: " + params.data.value + "</br>" + "占比:" + params.data.percent
           return str
         }
-      } */
+      }
     }
   }
 }
