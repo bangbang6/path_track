@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import './plugins/axios'
-
+import 'echarts'
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
@@ -8,11 +8,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
 import '@/styles/index.scss' // global css
-
+import VueECharts from 'vue-echarts'
+Vue.component('v-chart', VueECharts)
 import App from './App'
 import store from './store'
 import router from './router'
-
+import './assets/font/iconfont.css'
 import '@/icons' // icon
 import '@/permission' // permission control
 

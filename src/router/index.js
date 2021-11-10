@@ -98,7 +98,7 @@ export const asyncRoutes = [
         component: () => import('@/views/cpath/overall'),
         meta: { title: '路径总览', icon: 'el-icon-s-order' }
       },
-     
+
       {
         path: 'Scan0',
         name: 'Scan0',
@@ -133,13 +133,13 @@ export const asyncRoutes = [
     path: '/dashboard1',
     name: 'dashboard1',
     component: () => import('@/views/dashboard/dashboard1'),
-    meta: { title: '院长大屏', icon: 'el-icon-s-order' }
+    meta: { title: '监管机构大屏', icon: 'el-icon-s-order' }
   },
   {
     path: '/dashboard2',
     name: 'dashboard2',
     component: () => import('@/views/dashboard/dashboard2'),
-    meta: { title: '监管机构大屏', icon: 'el-icon-s-order' }
+    meta: { title: '院长大屏', icon: 'el-icon-s-order' }
   },
   {
     path: '/Evaluate',
@@ -180,7 +180,7 @@ export const asyncRoutes = [
       }
     ]
   },
- 
+
   { path: '*', redirect: '/404', hidden: true }
 ]
 
