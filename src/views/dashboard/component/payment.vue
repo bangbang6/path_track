@@ -28,55 +28,61 @@ export default {
                     'department': '皮肤科',
                     'income': '492.36万',
                     'payment': '324.88万',
-                    'time':'2021-08-07 00:00:00'
+                    'time':'2021-11-15 00:00:00'
                 },
                 {
                     'department': '妇科',
                     'income': '312.12万',
                     'payment': '285.73万',
-                    'time':'2021-08-07 00:00:00'
+                    'time':'2021-11-15 00:00:00'
                 },
                 {
                     'department': '口腔科',
                     'income': '318.79万',
                     'payment': '276.42万',
-                    'time':'2021-08-07 00:00:00'
+                    'time':'2021-11-15 00:00:00'
                 },
                 {
                     'department': '内科',
                     'income': '301.23万',
                     'payment': '253.73万',
-                    'time':'2021-08-07 00:00:00'
+                    'time':'2021-11-15 00:00:00'
                 },
                 {
                     'department': '五官科',
                     'income': '462.63万',
                     'payment': '371.82万',
-                    'time':'2021-08-07 00:00:00'
+                    'time':'2021-11-15 00:00:00'
                 },
                 {
                     'department': '外科',
                     'income': '538.49万',
                     'payment': '489.61万',
-                    'time':'2021-08-07 00:00:00'
+                    'time':'2021-11-15 00:00:00'
                 },
                 {
                     'department': '内分泌科',
                     'income': '172.32万',
                     'payment': '93.31万',
-                    'time':'2021-08-07 00:00:00'
+                    'time':'2021-11-15 00:00:00'
                 },
                 {
                     'department': '中医科',
                     'income': '253.79万',
                     'payment': '123.38万',
-                    'time':'2021-08-07 00:00:00'
+                    'time':'2021-11-15 00:00:00'
                 },
                 {
                     'department': '眼科',
                     'income': '163.51万',
                     'payment': '137.63万',
-                    'time':'2021-08-07 00:00:00'
+                    'time':'2021-11-15 00:00:00'
+                },
+                {
+                    'department': '脑科',
+                    'income': '271.72万',
+                    'payment': '218.63万',
+                    'time':'2021-11-15 00:00:00'
                 }
             ]
         }
@@ -120,7 +126,7 @@ export default {
       padding: 6px 20px 6px 0;
       align-items: center;
       .department {
-        color: #74fbf5;
+        color: #168CE3;
         //flex: 1;
         // height: 12.5%;
 
@@ -129,7 +135,7 @@ export default {
         width: 20%;
       }
       .income {
-        color: #74fbf5;
+        color: #168CE3;
         //flex: 1;
         // height: 12.5%;
 
@@ -138,7 +144,7 @@ export default {
         width: 20%;
       }
       .payment {
-        color: #74fbf5;
+        color: #168CE3;
         //flex: 1;
         // height: 12.5%;
 
@@ -147,7 +153,7 @@ export default {
         width: 20%;
       }
       .time {
-        color: #74fbf5;
+        color: #168CE3;
         //flex: 1;
         // height: 12.5%;
 
@@ -177,7 +183,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 14px;
+        font-size: 12px;
         width: 20%;
       }
       .income {
@@ -186,7 +192,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 14px;
+        font-size: 12px;
         width: 20%;
       }
       .payment {
@@ -195,7 +201,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 14px;
+        font-size: 12px;
         width: 20%;
       }
       .time {
@@ -204,7 +210,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 14px;
+        font-size: 12px;
         width: 40%;
       }
 
