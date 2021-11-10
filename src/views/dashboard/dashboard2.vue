@@ -34,8 +34,12 @@
         <div class="error">预警情况</div>
       </div>
       <div class="bottom">
-        <div class="input-output">收录支出情况</div>
-        <div class="peopleNumber">就医人员</div>
+        <div class="input-output" >
+          <payment/>
+        </div>
+        <div class="peopleNumber">
+          <patient/>
+        </div>
         <div class="yuyue">到诊人数</div>
       </div>
     </div>
@@ -43,7 +47,10 @@
 </template>
  
 <script>
+import Payment from './component/payment.vue'
+import Patient from './component/patient.vue'
 export default {
+  components: {Payment, Patient},
   data () {
     return {
     }

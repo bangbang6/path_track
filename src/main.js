@@ -15,6 +15,9 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
+import 'echarts'
+import VueECharts from 'vue-echarts'
+Vue.component('v-chart', VueECharts)
 
 /**
  * If you don't want to use mock-server
