@@ -47,17 +47,17 @@ export default {
       .word{
         font-size: 15px;
         font-weight: bold;
-        margin-top: 1%;
+        margin-top: 4%;
       }
       .desc{
         font-size: 10px;
         font-weight: lighter;
-        margin-top: 1%;
+        margin-top: 4%;
       }
       .number{
         font-size: 30px;
         font-weight: bold;
-        margin-top: 1%;
+        margin-top: 4%;
       }
     }
   }

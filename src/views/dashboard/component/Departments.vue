@@ -73,17 +73,17 @@ export default {
   },
   mounted () {
     this.options = {
-
       series: [{
         name: "category",
         type: 'pie',
         data: mockData,
         animation: true,
+        radius:'68%',
         animationDuration: 1000,
         label: {
           normal: {
             show: true,
-           //  position:'outer',
+           //position:'inner',
             formatter: function (params) {
               const str = params.data.legendname + ':' + params.value
               return str
@@ -135,13 +135,14 @@ export default {
   box-sizing: border-box;
   padding-top: 10px;
   padding-left: 10px;
+  background-color: #091629;
   .title {
     color: #117fbe;
     font-size: 16px;
     font-weight: bold;
   }
   .echarts {
-    width: 80%;
+    width: 100%;
     height: 80%;
   }
 }

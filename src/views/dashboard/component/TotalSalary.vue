@@ -98,6 +98,7 @@
     box-sizing: border-box;
     padding-top: 10px;
     padding-left: 10px;
+    background-color: #091629;
     .title {
       color: #117fbe;
       font-size: 16px;

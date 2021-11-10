@@ -46,9 +46,9 @@
 
 <script>
 
-import Card from './Card.vue'
-import Departments from './Departments.vue'
-import TotalSalary from './TotalSalary.vue'
+import Card from './component/Card.vue'
+import Departments from './component/Departments.vue'
+import TotalSalary from './component/TotalSalary.vue'
 import Payment from './component/payment.vue'
 import Patient from './component/patient.vue'
 export default {
@@ -67,7 +67,11 @@ export default {
   },
 }
 </script>
-
+<style scoped>
+/deep/ .el-card__body{
+    padding: 0;
+  }
+</style>
 <style lang="scss" scoped>
 .monitor {
   width: 100%;
@@ -80,7 +84,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("header.png");
+    background: url("component/img/header.png");
     background-size: 100% 100%;
   }
 
@@ -92,6 +96,7 @@ export default {
       height: 15%;
       display: flex;
       width: 100%;
+      margin-left: 2%;
       .nav-item {
         display: flex;
         flex: 1;
@@ -100,8 +105,8 @@ export default {
         border: #081326 solid 1px;
         .el-card{
           border:#081326 solid 1px ;
-
         }
+
       }
     }
     .center {
