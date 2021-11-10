@@ -89,7 +89,7 @@ export default {
     width: 90%;
     margin-left: 5%;
     .navs {
-      height: 13%;
+      height: 15%;
       display: flex;
       width: 100%;
       .nav-item {

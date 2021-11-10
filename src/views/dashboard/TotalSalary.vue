@@ -1,6 +1,6 @@
 <template>
   <div class="category-user rangle">
-    <div class="title">总收入项目分布</div>
+    <div class="title">总收入项目分布（元）</div>
     <v-chart :options="options"></v-chart>
   </div>
 </template>
@@ -29,20 +29,22 @@
         },
         yAxis: {
           type: 'category',
-          data: ['床位费', '西药', '化验', '检查', '治疗', '材料'],
+          data: ['床位', '西药', '化验', '检查', '治疗', '材料'],
           inverse: true,
         },
         xAxis: {
           type: 'value',
-          splitLine: {
-            lineStyle: {
-              type: 'dashed'
-            }
-          }
         },
 
         series: [
           {
+            labelLine: {
+              normal: {
+                lineStyle: {
+                  color: 'rgba(255, 255, 255, 0.3)'
+                },
+              }
+            },
             label: {
               show: true,
               position: 'right'

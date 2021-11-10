@@ -8,61 +8,60 @@
 <script>
 let mockData = [
   {
-    legendname: "channel2:24",
-    value: 67,
-    percent: "12%",
+    legendname: "皮肤科",
+    value: 945,
+    percent: "19%",
     itemStyle: {
       color: '#8FC31F'
     },
-    name: "channel2:24 | 12%"
+    name: "皮肤科 | 19%"
   },
   {
-    legendname: "channel3:26",
-    value: 97,
-    percent: "13%",
+    legendname: "口腔科",
+    value: 435,
+    percent: "12%",
     itemStyle: {
       color: '#F35833'
     },
-    name: "channel3:26 | 13%",
+    name: "口腔科 | 12%",
 
   },
   {
-    legendname: "channel4:30",
-    value: 92,
-    percent: "15%",
+    legendname: "五官科",
+    value: 455,
+    percent: "13%",
     itemStyle: {
       color: '#00CCFF'
     },
-    name: "channel4:30 | 15%"
+    name: "五官科 | 13%"
   },
   {
-    legendname: "channel5:28",
-    value: 87,
-    percent: "14%",
+    legendname: "外科",
+    value: 858,
+    percent: "15%",
     itemStyle: {
       color: '#FFCC00'
     },
-    name: "channel5:28 | 14%"
-
+    name: "外科 | 15%"
   },
   {
-    legendname: "channel6:50",
-    value: 204,
-    percent: "25%",
+    legendname: "内科",
+    value: 888,
+    percent: "14%",
     itemStyle: {
       color: '#A74FAF'
     },
-    name: "channel6:50 | 25%"
+    name: "内科 | 14%"
 
   },
   {
-    legendname: "channel1:38",
-    value: 107,
-    percent: "19%",
+    legendname: "妇科",
+    value: 1259,
+    percent: "25%",
     itemStyle: {
       color: '#FF9668'
     },
-    name: "channel1:38 | 19%"
+    name: "妇科 | 25%"
 
   },
 ]
@@ -84,18 +83,22 @@ export default {
         label: {
           normal: {
             show: true,
-            position: 'inner',
+           //  position:'outer',
             formatter: function (params) {
-              return params.data.percent
-            }
-          }
+              const str = params.data.legendname + ':' + params.value
+              return str
+            },
+            textStyle: {
+              color: "#fff"
+            },
+          },
         },
-
         labelLine: {
           normal: {
-            length: 5,
-            length2: 3,
-            smooth: true
+            lineStyle: {
+              color: '#FF9668'
+            },
+            smooth: 0.2,
           }
         },
         /* itemStyle: {
@@ -116,7 +119,7 @@ export default {
       tooltip: {
         trigger: 'item',
         formatter: function (params) {
-          const str = params.seriesName + '</br>' + params.marker + params.data.legendname + '</br>' + "数量: " + params.data.value + "</br>" + "占比:" + params.data.percent
+          const str = params.marker + params.data.legendname + '</br>' + "数量: " + params.data.value + "</br>" + "占比:" + params.data.percent
           return str
         }
       }
@@ -138,8 +141,8 @@ export default {
     font-weight: bold;
   }
   .echarts {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
   }
 }
 </style>
