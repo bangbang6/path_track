@@ -59,11 +59,7 @@ export default {
   },
 }
 </script>
-<style scoped>
-/deep/ .el-card__body{
-    padding: 0px !important;
-  }
-</style>
+
 <style lang="scss" scoped>
 .monitor {
   width: 100%;
