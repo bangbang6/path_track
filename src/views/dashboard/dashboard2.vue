@@ -35,7 +35,7 @@
       <div class="center">
         <div class="percentage"><Departments></Departments></div>
         <div class="salary"><TotalSalary></TotalSalary></div>
-        <div class="error">预警情况</div>
+        <div class="earlyWarnings"><earlyWarnings></earlyWarnings></div>
       </div>
       <div class="bottom">
         <div class="input-output" >
@@ -44,7 +44,7 @@
         <div class="peopleNumber">
           <patient/>
         </div>
-        <div class="yuyue">到诊人数</div>
+        <div class="yuyueNumberComparison"><yuyueNumberComparison></yuyueNumberComparison></div>
       </div>
     </div>
   </div>
@@ -57,12 +57,16 @@ import Departments from './component/Departments.vue'
 import TotalSalary from './component/TotalSalary.vue'
 import Payment from './component/payment.vue'
 import Patient from './component/patient.vue'
+import earlyWarnings from './earlyWarnings.vue'
+import yuyueNumberComparison from './yuyueNumberComparison.vue'
+
+
 export default {
-  components: {Head,Card,Departments,TotalSalary,Payment, Patient},
+  components: {Head,Card,Departments,TotalSalary,Payment, Patient, earlyWarnings, yuyueNumberComparison},
 
   data () {
     return {
-      doctorNumber: 387,
+      yuyueNumberComparisonctorNumber: 387,
       patientsNumber: 368329,
       dataNumber: 2479109,
       blockNumber: 47991,
@@ -174,8 +178,10 @@ export default {
         margin-right: 5px;
       }
       .error {
-        flex: 1 0 60%;
-        background: red;
+        flex: 1 0 20%;
+        background: #081326;
+        margin-left: 2px;
+        margin-right: 5px;
       }
     }
     .bottom {
