@@ -43,12 +43,19 @@ export const constantRoutes = [
     component: () => import('@/views/login/register'),
     hidden: true
   },
+  {
+    path: '/dashboard1',
+    name: 'dashboard1',
+    component: () => import('@/views/dashboard/dashboard1'),
+    meta: { title: '院长大屏', icon: 'el-icon-s-order' }
+  },
 
   {
     path: '/404',
     component: () => import('@/views/404'),
     hidden: true
-  }
+  },
+ 
 
 ]
 
@@ -57,7 +64,7 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
-
+  
   {
     path: '/',
     component: Layout,
@@ -82,7 +89,7 @@ export const asyncRoutes = [
       }
     ]
   },
-
+ 
   {
     path: '/Path',
     component: Layout,
