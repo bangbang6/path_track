@@ -1,6 +1,12 @@
 <template>
   <div class="monitor">
-    <div class="head">
+    <div class="headWapper">
+      <div class="tra1"></div>
+      <div class="head" style="position: relative">
+        <div class="title">智慧医疗平台</div>
+      </div>
+      <div class="head1">
+      </div>
     </div>
     <div class="wrapper">
       <div class="navs">
@@ -45,14 +51,14 @@
 </template>
 
 <script>
-
+import Head from './component/Head.vue'
 import Card from './component/Card.vue'
 import Departments from './component/Departments.vue'
 import TotalSalary from './component/TotalSalary.vue'
 import Payment from './component/payment.vue'
 import Patient from './component/patient.vue'
 export default {
-  components: {Card,Departments,TotalSalary,Payment, Patient},
+  components: {Head,Card,Departments,TotalSalary,Payment, Patient},
 
   data () {
     return {
@@ -77,17 +83,59 @@ export default {
   width: 100%;
   height: 100%;
   background:#081326;
-
-  .head {
+  .headWapper{
     height: 10%;
     width: 100%;
+    z-index: 2;
+  }
+  .head {
+    height: 10%;
+    width: 50%;
     display: flex;
+    margin-left: 25%;
     justify-content: center;
     align-items: center;
-    background: url("component/img/header.png");
+    //background: url("component/img/header.png");
     background-size: 100% 100%;
+    border-top: 100px solid #0e1d38;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    z-index: 999;
+    .title{
+      margin-top: -10%;
+    }
   }
-
+  .head1 {
+    height: 10%;
+    width: 50%;
+    display: flex;
+    margin-left: 25%;
+    justify-content: center;
+    align-items: center;
+    //background: url("component/img/header.png");
+    background-size: 100% 100%;
+    border-top: 100px solid #3a77e6;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 1px;
+    z-index: 777;
+  }
+  .tra1{
+    position: absolute;
+    top: 0;
+    height: 5%;
+    width: 100%;
+    background:#0e1d38;
+    border-bottom:1px solid #3a77e6;
+    z-index: 888;
+  }
   .wrapper {
     height: 90%;
     width: 90%;

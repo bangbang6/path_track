@@ -1,7 +1,11 @@
 <template>
-  <div class="category-user rangle">
+  <div class="style2 rangle" style="position: relative;">
     <div class="title">各科室人员占比</div>
-    <v-chart :options="options"></v-chart>
+
+     <!--<v-chart :options="options"></v-chart>-->
+      <v-chart :options="options" style="position: absolute;top: 0;left: 0;"></v-chart>
+      <v-chart :options="options2" style="position: absolute;top: 0;left: 0;"></v-chart>
+
   </div>
 </template>
 
@@ -68,7 +72,8 @@ let mockData = [
 export default {
   data () {
     return {
-      options: {}
+      options: {},
+      options2: {}
     }
   },
   mounted () {
@@ -124,12 +129,64 @@ export default {
         }
       }
     }
+    this.options2 = {
+      series: [{
+        name: "category",
+        type: 'pie',
+        data: mockData,
+        animation: true,
+        radius:'68%',
+        animationDuration: 1000,
+        label: {
+          normal: {
+            show: true,
+            position:'inner',
+            formatter: function (params) {
+              const str = params.percent+"%"
+              return str
+            },
+            textStyle: {
+              color: "#fff"
+            },
+          },
+        },
+        labelLine: {
+          normal: {
+            lineStyle: {
+              color: '#FF9668'
+            },
+            smooth: 0.2,
+          }
+        },
+        /* itemStyle: {
+          borderWidth:4px
+        }, */
+        clockwise: true
+      }],
+      // legend: {
+      //    type: 'scroll',
+      //    orient: "vertical",
+      //    height: 250,
+      //    left: '60%',
+      //    top: 'middle',
+      //    textStyle: {
+      //      color: "white"
+      //    }
+      //  },
+      tooltip: {
+        trigger: 'item',
+        formatter: function (params) {
+          const str = params.marker + params.data.legendname + '</br>' + "数量: " + params.data.value + "</br>" + "占比:" + params.data.percent
+          return str
+        }
+      }
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.category-user {
+.style2 {
   height: 90%;
   margin-top: 20px;
   box-sizing: border-box;

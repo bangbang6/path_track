@@ -1,5 +1,5 @@
 <template>
-  <div class="category-user rangle">
+  <div class="style1 rangle">
     <div class="title">总收入项目分布（元）</div>
     <v-chart :options="options"></v-chart>
   </div>
@@ -15,8 +15,7 @@
     mounted () {
       this.options = {
         grid: {
-          right:'1%',
-          top:'5%'
+          top:'3%'
         },
         textStyle:{
           color:"#fff"
@@ -92,7 +91,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .category-user {
+  .style1 {
     height: 90%;
     margin-top: 20px;
     box-sizing: border-box;
