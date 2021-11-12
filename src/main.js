@@ -17,8 +17,8 @@ import 'echarts'
 import './assets/font/iconfont.css'
 import '@/icons' // icon
 import '@/permission' // permission control
-// import 'echarts'
-// import VueECharts from 'vue-echarts'
+import 'echarts'
+import VueECharts from 'vue-echarts'
 Vue.component('v-chart', VueECharts)
 
 /**
