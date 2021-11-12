@@ -99,7 +99,7 @@ export default {
   .title {
     width: 100%;
     height: 10%;
-    color: #18a1df;
+    color: #117fbe;
   }
   .wrapper {
     width: 100%;

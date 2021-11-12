@@ -131,7 +131,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 14px;
+        font-size: 13px;
         width: 20%;
       }
       .income {
@@ -140,7 +140,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 14px;
+        font-size: 13px;
         width: 20%;
       }
       .payment {
@@ -149,7 +149,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 14px;
+        font-size: 13px;
         width: 20%;
       }
       .time {
@@ -158,7 +158,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 14px;
+        font-size: 13px;
         width: 40%;
       }
 

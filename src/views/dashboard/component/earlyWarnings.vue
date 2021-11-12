@@ -2,13 +2,13 @@
   <div class="trans-list rangle">
     <div class="title">2021各科室预警情况</div>
     <div class="list">
-      <div class="list-item">
-        <div class="department title">科室名称</div>
-        <div class="earlyWarningMonthly title">当月预警比例</div>
-        <div class="earlyWarningNumberToday title">今日预警数量</div>
-        <div class="timeUpdate title">更新时间</div>
-        <div class="dutyDirectorToday title">今日值班主任</div>
-        <div class="numberOfEmployeesToday title">今日在职人数</div>
+      <div class="list-title">
+        <div class="department ">科室名称</div>
+        <div class="earlyWarningMonthly ">当月预警比例</div>
+        <div class="earlyWarningNumberToday ">今日预警数量</div>
+        <div class="timeUpdate ">更新时间</div>
+        <div class="dutyDirectorToday ">今日值班主任</div>
+        <div class="numberOfEmployeesToday ">今日在职人数</div>
       </div>
       <div class="list-item" v-for="(item,index) in list" :key="index" @click="handleClick(index)">
         <div class="department">{{item.department}}</div>
@@ -124,7 +124,9 @@ export default {
   .title {
     color: #117fbe;
     font-size: 16px;
+    font-weight: bold;
   }
+
   .list {
     background-color: #091629;
     padding-left: 10px;
@@ -136,12 +138,80 @@ export default {
     margin-top: 10px;
     .title {
       color: #168ce3 !important;
-
       font-weight: 600;
+    }
+    .list-title {
+      display: flex;
+      border-bottom: 1px solid gray;
+      // height: 12.5%;
+      padding: 6px 20px 6px 0;
+      align-items: center;
+      div {
+        flex: 1;
+      }
+      .department {
+        color: #168ce3;
+        //flex: 1;
+        // height: 12.5%;
+
+        text-align: center;
+        font-size: 13px;
+      }
+      .earlyWarningMonthly {
+        color: #168ce3;
+        //flex: 1;
+        // height: 12.5%;
+
+        text-align: center;
+        font-size: 13px;
+      }
+      .earlyWarningNumberToday {
+        color: #168ce3;
+        //flex: 1;
+        // height: 12.5%;
+
+        text-align: center;
+        font-size: 13px;
+      }
+      .timeUpdate {
+        color: #168ce3;
+        //flex: 1;
+        // height: 12.5%;
+
+        text-align: center;
+        font-size: 13px;
+      }
+
+      .dutyDirectorToday {
+        text-align: center;
+        color: #168ce3;
+
+        font-size: 13px;
+      }
+      .numberOfEmployeesToday {
+        text-align: center;
+        font-size: 13px;
+        color: #168ce3;
+      }
+      .overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      /* &:nth-child(odd) {
+        background: #f2f2f2;
+      }
+      &:nth-child(even) {
+        background: white;
+      } */
+      &.gray {
+        color: gray;
+      }
     }
     .list-item {
       display: flex;
-      border-bottom: 1px solid gray;
+      // border-bottom: 1px solid gray;
       // height: 12.5%;
       padding: 6px 20px 6px 0;
       align-items: center;
