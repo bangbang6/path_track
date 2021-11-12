@@ -12,8 +12,7 @@ import App from './App'
 import store from './store'
 import router from './router'
 import 'echarts'
-import VueECharts from 'vue-echarts'
-Vue.component('v-chart', VueECharts)
+
 
 import './assets/font/iconfont.css'
 import '@/icons' // icon

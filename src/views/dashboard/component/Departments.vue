@@ -2,10 +2,9 @@
   <div class="style2 rangle" style="position: relative;">
     <div class="title">各科室人员占比</div>
 
-     <!--<v-chart :options="options"></v-chart>-->
-      <v-chart :options="options" style="position: absolute;top: 0;left: 0;"></v-chart>
-      <v-chart :options="options2" style="position: absolute;top: 0;left: 0;"></v-chart>
-
+    <!--<v-chart :options="options"></v-chart>-->
+    <v-chart :options="options" style="position: absolute;top: 0;left: 0;"></v-chart>
+    <v-chart :options="options2" style="position: absolute;top: 0;left: 0;"></v-chart>
   </div>
 </template>
 
@@ -83,12 +82,12 @@ export default {
         type: 'pie',
         data: mockData,
         animation: true,
-        radius:'68%',
+        radius: '65%',
         animationDuration: 1000,
         label: {
           normal: {
             show: true,
-           //position:'inner',
+            //position:'inner',
             formatter: function (params) {
               const str = params.data.legendname + ':' + params.value
               return str
@@ -99,7 +98,9 @@ export default {
           },
         },
         labelLine: {
+          length: 2,
           normal: {
+            length: 2,
             lineStyle: {
               color: '#FF9668'
             },
@@ -111,22 +112,28 @@ export default {
         }, */
         clockwise: true
       }],
-     // legend: {
-     //    type: 'scroll',
-     //    orient: "vertical",
-     //    height: 250,
-     //    left: '60%',
-     //    top: 'middle',
-     //    textStyle: {
-     //      color: "white"
-     //    }
-     //  },
+      // legend: {
+      //    type: 'scroll',
+      //    orient: "vertical",
+      //    height: 250,
+      //    left: '60%',
+      //    top: 'middle',
+      //    textStyle: {
+      //      color: "white"
+      //    }
+      //  },
       tooltip: {
         trigger: 'item',
         formatter: function (params) {
           const str = params.marker + params.data.legendname + '</br>' + "数量: " + params.data.value + "</br>" + "占比:" + params.data.percent
           return str
         }
+      },
+      grid: {
+        left: 0,
+        right: 0,
+        top: 10,
+        bottom: 10
       }
     }
     this.options2 = {
@@ -135,14 +142,14 @@ export default {
         type: 'pie',
         data: mockData,
         animation: true,
-        radius:'68%',
+        radius: '65%',
         animationDuration: 1000,
         label: {
           normal: {
             show: true,
-            position:'inner',
+            position: 'inner',
             formatter: function (params) {
-              const str = params.percent+"%"
+              const str = params.percent + "%"
               return str
             },
             textStyle: {
@@ -151,9 +158,13 @@ export default {
           },
         },
         labelLine: {
+          length: 2,
+
           normal: {
+            length: 2,
             lineStyle: {
-              color: '#FF9668'
+              color: '#FF9668',
+
             },
             smooth: 0.2,
           }
@@ -187,8 +198,8 @@ export default {
 
 <style lang="scss" scoped>
 .style2 {
-  height: 90%;
-  margin-top: 20px;
+  height: 100%;
+
   box-sizing: border-box;
   padding-top: 10px;
   padding-left: 10px;
