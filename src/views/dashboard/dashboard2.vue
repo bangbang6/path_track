@@ -89,8 +89,8 @@ import Departments from './component/Departments.vue'
 import TotalSalary from './component/TotalSalary.vue'
 import Payment from './component/payment.vue'
 import Patient from './component/patient.vue'
-import earlyWarnings from './earlyWarnings.vue'
-import yuyueNumberComparison from './yuyueNumberComparison.vue'
+import earlyWarnings from './component/earlyWarnings.vue'
+import yuyueNumberComparison from './component/yuyueNumberComparison.vue'
 
 
 export default {

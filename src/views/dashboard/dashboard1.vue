@@ -39,7 +39,7 @@
     </div>
   </div>
 </template>
- 
+
 <script>
 import TotalPeople from '@/components/dashboard1/totalPeople.vue'
 import InputSalary from '@/components/dashboard1/inputSalary.vue'
@@ -73,12 +73,12 @@ export default {
   }
 }
 </script>
- 
+
 <style lang="scss" scoped>
 .doctor {
   width: 100%;
   height: 100%;
-  background-image: url('./background.png');
+  background-image: url('img/background.png');
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
