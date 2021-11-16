@@ -1,6 +1,12 @@
 <template>
   <div class="china-map">
-    <div class="title">全国今日就医热度统计</div>
+    <div class="title">
+      <span>></span>
+      <span class="light">></span>
+      全国今日就医热度统计
+      <span class="light"><</span>
+      <span><</span>
+    </div>
     <div class="main">
       <div class="list">
         <div class="item">

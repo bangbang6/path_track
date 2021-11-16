@@ -47,6 +47,18 @@ export const constantRoutes = [
     path: '/dashboard1',
     name: 'dashboard1',
     component: () => import('@/views/dashboard/dashboard1'),
+    meta: { title: '机构大屏', icon: 'el-icon-s-order' }
+  },
+  {
+    path: '/dashboard2',
+    name: 'dashboard2',
+    component: () => import('@/views/dashboard/dashboard2'),
+    meta: { title: '院长大屏', icon: 'el-icon-s-order' }
+  },
+  {
+    path: '/dataerror',
+    name: 'dataerror',
+    component: () => import('@/views/dashboard/dataError'),
     meta: { title: '院长大屏', icon: 'el-icon-s-order' }
   },
 

@@ -105,7 +105,12 @@ export default {
   },
   methods: {
     handleClick (index) {
-      console.log('click')
+      this.$router.push({
+        path: "/dataerror",
+        query: {
+          department: this.list[index].department
+        }
+      })
     }
   }
 }
