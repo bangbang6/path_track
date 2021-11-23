@@ -27,24 +27,24 @@
         </div>
         <div class="nav-item">
           <Card
-            :number="dataNumber"
-            word="数据总数"
-            desc="The Total Data Number"
-            iconClass="icon-jiludanzilishijilu"
+            :number="totalPeopleNumber"
+            word="累计看病人次"
+            desc="The Total People Number"
+            iconClass="icon-zongrenshu"
           ></Card>
         </div>
         <div class="nav-item">
-          <Card :number="blockNumber" word="区块数" desc="The Block Number" iconClass="icon-qukuai"></Card>
+          <Card :number="totalIncome" word="总收入情况（万）" desc="The Total Income" iconClass="icon-income-o"></Card>
         </div>
         <div class="nav-item">
-          <Card :number="peerNumber" word="节点数" desc="The Peer Number" iconClass="icon-CDNjiedian"></Card>
+          <Card :number="totalOutcome" word="总支出情况（万）" desc="The Total Outcome" iconClass="icon-cz-zc"></Card>
         </div>
         <div class="nav-item">
           <Card
-            :number="transactionNumber"
-            word="交易数"
-            desc="The Transaction Number"
-            iconClass="icon-jiaoyi"
+            :number="totalInsurance"
+            word="医保报销总金额（万）"
+            desc="Total amount of medical insurance reimbursement"
+            iconClass="icon-yibaoka"
           ></Card>
         </div>
         <div class="nav-item">
@@ -57,9 +57,10 @@
         </div>
       </div>
       <div class="center">
-        <div class="percentage">
-          <Departments></Departments>
+        <div class="input-output">
+          <payment />
         </div>
+
         <div class="salary">
           <TotalSalary></TotalSalary>
         </div>
@@ -68,15 +69,16 @@
         </div>
       </div>
       <div class="bottom">
-        <div class="input-output">
-          <payment />
-        </div>
-        <div class="peopleNumber">
-          <patient />
+        <div class="percentage">
+          <Departments></Departments>
         </div>
         <div class="yuyue">
           <yuyueNumberComparison></yuyueNumberComparison>
         </div>
+        <div class="peopleNumber">
+          <patient />
+        </div>
+
       </div>
     </div>
   </div>
@@ -98,13 +100,12 @@ export default {
 
   data () {
     return {
-      doctorNumber: 12,
-      yuyueNumberComparisonctorNumber: 387,
+      doctorNumber: 584,
       patientsNumber: 368329,
-      dataNumber: 2479109,
-      blockNumber: 47991,
-      peerNumber: 73,
-      transactionNumber: 8274682,
+      totalPeopleNumber: 2479109,
+      totalIncome: 47991,
+      totalOutcome: 45875,
+      totalInsurance: 2456,
       abnormalNumber: 7369,
     }
   },
@@ -198,9 +199,9 @@ export default {
       display: flex;
       padding-top: 10px;
       box-sizing: border-box;
-      .percentage {
-        background: #081326;
-        flex: 1 0 20%;
+      .input-output {
+        flex: 1 0 30%;
+        background: red;
         margin-right: 5px;
       }
       .salary {
@@ -210,8 +211,9 @@ export default {
         margin-right: 5px;
       }
       .earlyWarnings {
-        flex: 1 0 50%;
+        flex: 1 0 40%;
       }
+
       /* .error {
         flex: 1 0 20%;
         background: #081326;
@@ -224,18 +226,20 @@ export default {
       display: flex;
       padding-top: 10px;
       box-sizing: border-box;
-      .input-output {
-        flex: 1;
-        background: red;
-        margin-right: 5px;
-      }
-      .peopleNumber {
-        flex: 1;
-        background: green;
+      .percentage {
+        background: #081326;
+        flex: 1 0 30%;
         margin-right: 5px;
       }
       .yuyue {
-        flex: 1;
+        flex: 1 0 30%;
+        background: #081326;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+      .peopleNumber {
+        flex: 1 0 40%;
+
       }
     }
   }

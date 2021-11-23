@@ -1,8 +1,6 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 2928225 */
-  src: url('iconfont.woff2?t=1636528270364') format('woff2'),
-       url('iconfont.woff?t=1636528270364') format('woff'),
-       url('iconfont.ttf?t=1636528270364') format('truetype');
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1637636360524') format('truetype');
 }
 
 .iconfont {
@@ -17,8 +15,12 @@
   content: "\e61e";
 }
 
-.icon-jiludanzilishijilu:before {
-  content: "\e61b";
+.icon-income-o:before {
+  content: "\e629";
+}
+
+.icon-cz-zc:before {
+  content: "\e70c";
 }
 
 .icon-wodehuanzhe:before {
@@ -29,15 +31,11 @@
   content: "\e606";
 }
 
-.icon-jiaoyi:before {
-  content: "\e616";
+.icon-zongrenshu:before {
+  content: "\e61d";
 }
 
-.icon-CDNjiedian:before {
-  content: "\e798";
-}
-
-.icon-qukuai:before {
-  content: "\e994";
+.icon-yibaoka:before {
+  content: "\e65e";
 }
 
