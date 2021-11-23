@@ -28,11 +28,14 @@
     <div class="status-wrapper">
       <div class="status-detail">
         <div class="message" v-if="type === 'danger'">
-          <div class="line">
-            <span class="key bold">状态详情</span>
+          <div class="title1">
+            <span class="key bold">关键路径</span>
             <span class="value"></span>
           </div>
-          <div class="line">
+          <div class="timeline">
+            <timeline />
+          </div>
+          <!-- <div class="line">
             <span class="key">上次上链时间</span>
             <span class="value">{{formateDate(tx.old_time)}}</span>
           </div>
@@ -55,7 +58,7 @@
           <div class="line">
             <span class="key">本次操作者</span>
             <span class="value">{{tx.doctor}}</span>
-          </div>
+          </div>-->
         </div>
         <!-- <div class="message" v-else-if="type === 'warning'">
           <div class="line">
@@ -97,6 +100,7 @@
 <script>
 // import { getErrorDetailData } from '@/service/api'
 import { errorDetailData } from './mock'
+import timeline from '../cpath/timeline2'
 /* import { errorDetailData } from './mock'; */
 export default {
   props: {
@@ -135,7 +139,8 @@ export default {
       this.tx = this.errorDetailData.filter(item => item.id == newV)[0]
       console.log('this.tx', this.tx);
     },
-  }
+  },
+  components: { timeline }
 }
 </script>
  
@@ -143,11 +148,10 @@ export default {
 .err-detail {
   width: 100%;
   height: 100%;
+
   .detail-wrapper,
   .status-wrapper {
     padding: 5px 10px;
-    padding-top: 20px;
-    height: 50%;
 
     box-sizing: border-box;
     .detail,
@@ -167,9 +171,8 @@ export default {
         width: 100%;
         height: calc(100% - 70px);
 
-        margin-top: 10px;
         .line {
-          height: 20%;
+          height: 30%;
           display: flex;
           align-items: center;
           border-bottom: 1px solid #bcd0f9;
@@ -232,7 +235,6 @@ export default {
     }
     .operation {
       font-size: 12px;
-      margin-top: 20px;
       .op {
         .bold {
           font-weight: bold;
@@ -245,7 +247,6 @@ export default {
         .con {
           width: 40px;
           position: relative;
-          margin-top: 25px;
           margin-left: 40px;
           .dot {
             width: 8px;
@@ -292,8 +293,33 @@ export default {
       }
     }
   }
+
+  .detail-wrapper {
+    height: 30%;
+    padding-top: 20px;
+    box-sizing: border-box;
+  }
   .status-wrapper {
-    margin-top: -10%;
+    height: 70%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    .status-detail {
+      height: 100%;
+
+      .message {
+        height: 100%;
+
+        .title1 {
+          height: 20px;
+          font-size: 14px;
+          color: white;
+          font-weight: bold;
+        }
+        .timeline {
+          height: calc(100% - 20px);
+        }
+      }
+    }
   }
 }
 </style>

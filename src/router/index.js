@@ -61,13 +61,12 @@ export const constantRoutes = [
     component: () => import('@/views/dashboard/dataError'),
     meta: { title: '院长大屏', icon: 'el-icon-s-order' }
   },
-
+ 
   {
     path: '/404',
     component: () => import('@/views/404'),
     hidden: true
   },
-
 
 ]
 
@@ -160,6 +159,18 @@ export const asyncRoutes = [
     component: () => import('@/views/dashboard/dashboard2'),
     meta: { title: '院长大屏', icon: 'el-icon-s-order' }
   },
+  {
+    path: '/dataerror',
+    name: 'dataerror',
+    component: () => import('@/views/dashboard/dataError'),
+    meta: { title: '异常页面', icon: 'el-icon-s-order' }
+  },
+  // {
+  //   path: '/dashboard2',
+  //   name: 'dashboard2',
+  //   component: () => import('@/views/dashboard/dashboard2'),
+  //   meta: { title: '院长大屏', icon: 'el-icon-s-order' }
+  // },
   {
     path: '/Evaluate',
     name: 'Evaluate',

@@ -82,7 +82,7 @@ export default {
         type: 'pie',
         data: mockData,
         animation: true,
-        radius: '65%',
+        radius: '80%',
         animationDuration: 1000,
         label: {
           normal: {

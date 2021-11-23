@@ -1,58 +1,58 @@
 {
-  "id": "2928225",
-  "name": "院长大屏",
+  "id": "",
+  "name": "",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
     {
-      "icon_id": "765377",
+      "icon_id": "88963092",
       "name": "医生",
       "font_class": "shouye",
       "unicode": "e61e",
       "unicode_decimal": 58910
     },
     {
-      "icon_id": "5238504",
-      "name": "记录",
-      "font_class": "jiludanzilishijilu",
-      "unicode": "e61b",
-      "unicode_decimal": 58907
+      "icon_id": "89849254",
+      "name": "收入",
+      "font_class": "income-o",
+      "unicode": "e629",
+      "unicode_decimal": 58921
     },
     {
-      "icon_id": "6560990",
+      "icon_id": "89849255",
+      "name": "操作-支出",
+      "font_class": "cz-zc",
+      "unicode": "e70c",
+      "unicode_decimal": 59148
+    },
+    {
+      "icon_id": "88963094",
       "name": "我的患者",
       "font_class": "wodehuanzhe",
       "unicode": "e617",
       "unicode_decimal": 58903
     },
     {
-      "icon_id": "7978112",
+      "icon_id": "88963095",
       "name": "异常",
       "font_class": "yichang",
       "unicode": "e606",
       "unicode_decimal": 58886
     },
     {
-      "icon_id": "9550450",
-      "name": "交易",
-      "font_class": "jiaoyi",
-      "unicode": "e616",
-      "unicode_decimal": 58902
+      "icon_id": "89852161",
+      "name": "总人数",
+      "font_class": "zongrenshu",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
     },
     {
-      "icon_id": "14095352",
-      "name": "CDN节点",
-      "font_class": "CDNjiedian",
-      "unicode": "e798",
-      "unicode_decimal": 59288
-    },
-    {
-      "icon_id": "18267938",
-      "name": "区块",
-      "font_class": "qukuai",
-      "unicode": "e994",
-      "unicode_decimal": 59796
+      "icon_id": "89851753",
+      "name": "医保卡",
+      "font_class": "yibaoka",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
     }
   ]
 }
