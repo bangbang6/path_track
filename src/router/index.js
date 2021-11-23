@@ -43,7 +43,6 @@ export const constantRoutes = [
     component: () => import('@/views/login/register'),
     hidden: true
   },
-<<<<<<< HEAD
   {
     path: '/dashboard1',
     name: 'dashboard1',
@@ -62,14 +61,6 @@ export const constantRoutes = [
     component: () => import('@/views/dashboard/dataError'),
     meta: { title: '院长大屏', icon: 'el-icon-s-order' }
   },
-=======
-  // {
-  //   path: '/dashboard1',
-  //   name: 'dashboard1',
-  //   component: () => import('@/views/dashboard/dashboard1'),
-  //   meta: { title: '院长大屏', icon: 'el-icon-s-order' }
-  // },
->>>>>>> 4ae365c4e550f1a102ba9eeb6d6e76ddfb0097f3
 
   {
     path: '/404',
