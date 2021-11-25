@@ -57,15 +57,20 @@
           <el-tag type="primary" effect="dark" size="mini">正在进行</el-tag>
         </template>
         <el-timeline>
-          <el-timeline-item
-            v-for="(activity, index) in activities"
+           <el-timeline-item
+            v-for="(activity, index) in activitiesError"
             :key="index"
             :icon="activity.icon"
             :type="activity.type"
             :color="activity.color"
             :size="activity.size"
             :timestamp="activity.timestamp"
-          >{{activity.content}}</el-timeline-item>
+          >
+          
+           <div :class='activity.class'>{{activity.content}}</div> 
+          
+          </el-timeline-item>
+        </el-timeline>
         </el-timeline>
       </el-collapse-item>
       <el-collapse-item name="3" :style="styled">
@@ -158,6 +163,35 @@ export default {
         timestamp: '',
         size: 'normal'
       }],
+      activitiesError: [{
+        content: '主要诊疗工作-完成病历书写   2021-11-12 20:46',
+        timestamp: '',
+        size: 'large',
+        icon: "el-icon-star-on",
+        type: 'primary'
+      }, {
+        content: '开药流程   2021-11-13 20:46',
+        timestamp: '',
+        size: 'large',
+        icon: "el-icon-collection",
+        type: 'primary'
+
+      }, {
+        content: ' 医生开单   2021-11-14 20:46',
+        timestamp: '',
+        size: 'normal',
+      }, {
+        content: '  患者取药   2021-11-15 20:46',
+        timestamp: '',
+        size: 'normal',
+        class: "error"
+      }, {
+        content: '  自助机缴费 ',
+        timestamp: '',
+        size: 'normal',
+        class: "error"
+
+      }],
       activeNames: ['2'],
     }
   },
@@ -205,5 +239,9 @@ export default {
   width: 100%;
   background: #0f1c39;
   color: white;
+}
+::v-deep .error {
+  
+  color: #f31515;
 }
 </style>

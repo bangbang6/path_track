@@ -1,9 +1,14 @@
 <template>
   <div class="monitor">
     <div class="headWapper">
-      <div class="tra1"></div>
+      <div class="tra1">
+        <div class="notice">{{notice}}</div>
+        <div class="block">区块数:{{blockNumber}}</div>
+        <div class="node">节点数:{{nodeNumber}}</div>
+      </div>
       <div class="head" style="position: relative">
         <div class="title">智慧医疗平台</div>
+        <div class="sub-title">{{hospital}}</div>
       </div>
       <div class="head1"></div>
     </div>
@@ -34,10 +39,20 @@
           ></Card>
         </div>
         <div class="nav-item">
-          <Card :number="totalIncome" word="总收入情况（万）" desc="The Total Income" iconClass="icon-income-o"></Card>
+          <Card
+            :number="totalIncome"
+            word="总收入情况（万）"
+            desc="The Total Income"
+            iconClass="icon-income-o"
+          ></Card>
         </div>
         <div class="nav-item">
-          <Card :number="totalOutcome" word="总支出情况（万）" desc="The Total Outcome" iconClass="icon-cz-zc"></Card>
+          <Card
+            :number="totalOutcome"
+            word="总支出情况（万）"
+            desc="The Total Outcome"
+            iconClass="icon-cz-zc"
+          ></Card>
         </div>
         <div class="nav-item">
           <Card
@@ -73,12 +88,12 @@
           <Departments></Departments>
         </div>
         <div class="yuyue">
-          <yuyueNumberComparison></yuyueNumberComparison>
+          <!-- <yuyueNumberComparison></yuyueNumberComparison> -->
+          <hotSlow></hotSlow>
         </div>
         <div class="peopleNumber">
           <patient />
         </div>
-
       </div>
     </div>
   </div>
@@ -93,10 +108,11 @@ import Payment from './component/payment.vue'
 import Patient from './component/patient.vue'
 import earlyWarnings from './component/earlyWarnings.vue'
 import yuyueNumberComparison from './component/yuyueNumberComparison.vue'
+import hotSlow from './component/hotSlow.vue'
 
 
 export default {
-  components: { Head, Card, Departments, TotalSalary, Payment, Patient, earlyWarnings, yuyueNumberComparison },
+  components: { Head, Card, Departments, TotalSalary, Payment, Patient, earlyWarnings, yuyueNumberComparison, hotSlow },
 
   data () {
     return {
@@ -107,8 +123,25 @@ export default {
       totalOutcome: 45875,
       totalInsurance: 2456,
       abnormalNumber: 7369,
+      hospital: "",
+      blockNumber: 24600,
+      nodeNumber: 486300,
+      notices: ["! 发热人数增多", "! 外科预警数量较多", '! 慢性病数量增多'],
+      notice: '! 发热人数增多'
     }
   },
+  computed: {
+
+  },
+  mounted () {
+    const hospital = this.$route.query.hospital
+    this.hospital = hospital
+    let i = 1
+
+    setInterval(() => {
+      this.notice = this.notices[(i++) % 3]
+    }, 3000)
+  }
 }
 </script>
 <style scoped >
@@ -138,12 +171,23 @@ export default {
     border-top: 80px solid #0e1d38;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
+
     z-index: 999;
+    display: flex;
+
     .title {
       margin-top: -10%;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+    }
+    .sub-title {
+      color: white;
+
+      margin-top: -8%;
+      font-size: 20px;
+      font-weight: bold;
+      margin-left: 20px;
     }
   }
   .head1 {
@@ -173,6 +217,31 @@ export default {
     background: #0e1d38;
     border-bottom: 1px solid #3a77e6;
     z-index: 888;
+    display: flex;
+    align-items: center;
+    .block {
+      color: white;
+      font-size: 16px;
+      position: absolute;
+      width: 100px;
+
+      right: 180px;
+    }
+    .node {
+      color: white;
+      font-size: 16px;
+      position: absolute;
+
+      width: 120px;
+      right: 20px;
+    }
+    .notice {
+      color: #f35833;
+      font-size: 16px;
+      position: absolute;
+
+      left: 20px;
+    }
   }
   .wrapper {
     height: 88%;
@@ -239,7 +308,6 @@ export default {
       }
       .peopleNumber {
         flex: 1 0 40%;
-
       }
     }
   }

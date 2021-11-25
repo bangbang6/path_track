@@ -49,7 +49,7 @@
             <div class="status overflow">
               <el-tag
                 size="mini"
-                :type="item.status === '路径不当'?'danger': item.status === '数据不一致'?'warning':'primary'"
+                :type="item.status === '路径不当'?'danger': item.status === '数据不一致'?'warning':item.status==='时间异常'?'info':item.status==='费用异常'?'success':'primary'"
                 effect="dark"
               >{{item.status}}</el-tag>
             </div>
@@ -87,6 +87,12 @@ export default {
       }, {
         value: '选项3',
         label: '数据异常'
+      }, {
+        value: '选项4',
+        label: '时间异常'
+      }, {
+        value: '选项5',
+        label: '费用异常'
       }],
       chartOptions: {},
       paperId: 0,
@@ -141,14 +147,20 @@ export default {
     let NotSatifyRootData = []
     let NotFindPolicyData = []
     let dataError = []
+    let timeError = []
+    let freeError = []
     let len = errorDetailData.length
     errorDetailData.forEach(item => {
       if (item.status === '路径不当') {
         NotSatifyRootData.push(item)
       } else if (item.status === '数据不一致') {
         NotFindPolicyData.push(item)
-      } else {
+      } else if (item.status === '数据异常') {
         dataError.push(item)
+      } else if (item.status === '时间异常') {
+        timeError.push(item)
+      } else {
+        freeError.push(item)
       }
     });
     this.chartOptions = {
@@ -164,7 +176,7 @@ export default {
             itemStyle: {
               color: '#8FC31F'
             },
-            name: `NotSatifyRoot | ${(NotSatifyRootData.length / len).toFixed(2) * 100}%`
+            name: `pathError | ${(NotSatifyRootData.length / len).toFixed(2) * 100}%`
           },
           {
             legondname: '数据不一致',
@@ -173,7 +185,7 @@ export default {
             itemStyle: {
               color: '#F35833'
             },
-            name: `NotFindPolicy | ${(NotFindPolicyData.length / len).toFixed(2) * 100}%`
+            name: `dataSeq | ${(NotFindPolicyData.length / len).toFixed(2) * 100}%`
           },
           {
             legondname: '数据异常',
@@ -184,6 +196,24 @@ export default {
             },
             name: `dataError | ${(dataError.length / len).toFixed(2) * 100}%`
           },
+          {
+            legondname: '时间异常',
+            value: timeError.length,
+            percent: `${(timeError.length / len).toFixed(2) * 100}%`,
+            itemStyle: {
+              color: '#909399'
+            },
+            name: `timeError | ${(timeError.length / len).toFixed(2) * 100}%`
+          },
+          {
+            legondname: '费用异常',
+            value: freeError.length,
+            percent: `${(freeError.length / len).toFixed(2) * 100}%`,
+            itemStyle: {
+              color: '#67C23A'
+            },
+            name: `freeError | ${(freeError.length / len).toFixed(2) * 100}%`
+          }
         ],
 
         animation: true,
