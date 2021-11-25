@@ -242,6 +242,6 @@ export default {
 }
 ::v-deep .error {
   
-  color: #f31515;
+  color: #F56C6C;
 }
 </style>
