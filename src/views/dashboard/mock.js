@@ -65,6 +65,18 @@ export let errorDetailData = [
   {"user":"user9","txId":"3e81fadb9aa36607f2bd1cd911a9850a8ad42883b87909998da882c4a2085737","dataid":"data9","optype":"read","src_channel":"channel2","des_channel":"channel1","hashdata":"9aae4559d991eed2a76a9978a2a12fad18c033286995e1ded8ff1bb13f41e4fa","status":"路径不当","id":19,doctor:"李医生",last_content:"4-开药",content:"6-取药",old_time:new Date(2021,9,30,24,16,15),now_time:randomTime()},
   
   ]
+  export let patentData = [
+        {name:"刘先生",gender:"男",hospitalNo:"91738698199708060011",status:"就诊中",age:24},
+        {name:"李先生",gender:"男",hospitalNo:"91738698199801238323",status:"已出院",age:28},
+        {name:"王女士",gender:"女",hospitalNo:"91738698197209185371",status:"已出院",age:39},
+        {name:"郑女士",gender:"女",hospitalNo:"91738698195311127638",status:"就诊中",age:18},
+        {name:"何先生",gender:"男",hospitalNo:"91738698199105134127",status:"就诊中",age:30},
+        {name:"孟先生",gender:"男",hospitalNo:"91738698199812129381",status:"已出院",age:36},
+        {name:"赵女士",gender:"女",hospitalNo:"91738698198301036381",status:"就诊中",age:25},
+        {name:"周女士",gender:"女",hospitalNo:"91738698198404170924",status:"已出院",age:24},
+        {name:"马先生",gender:"男",hospitalNo:"91738698199204071384",status:"就诊中",age:29},
+        
+    ]
 export let  roleData =  [
   { "dataid": "data1", "optype": "write", "users": "user5,user3", "channel": "channel1" },
   { "dataid": "data1", "optype": "read", "users": "user10,user6,user3", "channel": "channel1" },
