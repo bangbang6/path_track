@@ -1,6 +1,12 @@
 <template>
   <div class="visit-home">
-    <div class="title">今日各科室访问人数</div>
+    <div class="title">
+      <span>></span>
+      <span class="light" style="margin-right: 5px;color: #237dbf">></span>
+      今日各科室访问人数
+      <span class="light" style="margin-left: 5px;color: #237dbf">&nbsp<</span>
+      <span><</span>
+    </div>
     <div class="chart">
       <v-chart :options="options"></v-chart>
     </div>
