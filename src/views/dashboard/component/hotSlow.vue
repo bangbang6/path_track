@@ -1,6 +1,6 @@
 <template>
   <div class="men-zheng rangle">
-    <div class="title">发热/慢性病人数</div>
+    <div class="title">近期热点疾病</div>
     <div class="chart">
       <v-chart :options="options"></v-chart>
     </div>

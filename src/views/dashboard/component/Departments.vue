@@ -1,6 +1,6 @@
 <template>
-  <div class="style2 rangle" style="position: relative;">
-    <div class="title">各科室人员占比</div>
+  <div class="style2 rangle" style="position: relative;" @click="$router.push('/patentDetail')">
+    <div class="title">各科室项目占比</div>
 
     <!--<v-chart :options="options"></v-chart>-->
     <v-chart :options="options" style="position: absolute;top: 0;left: 0;"></v-chart>
@@ -70,12 +70,19 @@ let mockData = [
 ]
 export default {
   data () {
+
     return {
       options: {},
-      options2: {}
+      options2: {},
+      chartEvents: null
     }
   },
   mounted () {
+    this.chartEvents = {
+      click (e) {
+        console.log('e', e);
+      }
+    }
     this.options = {
       series: [{
         name: "category",
@@ -191,6 +198,11 @@ export default {
           return str
         }
       }
+    }
+  },
+  methods: {
+    getInstance (instance) {
+      console.log('instance', instance);
     }
   }
 }
