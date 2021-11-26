@@ -114,12 +114,12 @@ export default {
     font-size: 16px;
     font-weight: bold;
     color: #237dbf;
-    background: #051d3f;
+    background: #093068c4;
   }
   .chart {
     width: 100%;
     height: 90%;
-    background: #093068;
+    background: #093068c4;
 
     .echarts {
       width: 100%;

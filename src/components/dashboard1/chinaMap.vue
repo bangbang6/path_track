@@ -3,7 +3,7 @@
     <div class="title">
       <span>></span>
       <span class="light" style="margin-right: 5px;color: #237dbf">></span>
-      全国今日就医热度统计
+      全国医院综合排名
       <span class="light" style="margin-left: 5px;color: #237dbf">&nbsp<</span>
       <span><</span>
     </div>

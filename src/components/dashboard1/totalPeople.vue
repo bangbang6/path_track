@@ -162,7 +162,7 @@ export default {
   }
   .main {
     height: 90%;
-    background: #093068;
+    background: #093068c4;
     .total {
       display: flex;
       height: 26%;

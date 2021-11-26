@@ -107,14 +107,12 @@ export default {
       }
     }
     .titleDiv {
-
       height: 60%;
       width: 30%;
       letter-spacing: 6px;
       color: white;
       font-weight: bold;
       font-size:32px;
-      background-color: #041a40;
       border: #1f2d3d 2px solid;
       display: flex;
       justify-content: space-between;

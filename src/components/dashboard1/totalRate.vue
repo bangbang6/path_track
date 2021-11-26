@@ -3,7 +3,7 @@
     <div class="title">
       <span>></span>
       <span class="light" style="margin-right: 5px;color: #237dbf">></span>
-      各科室综合指标
+      各医院综合指标
       <span class="light" style="margin-left: 5px;color: #237dbf">&nbsp<</span>
       <span><</span>
     </div>
@@ -89,7 +89,7 @@ export default {
   //   margin-right: 10px;
   //   overflow-y: hidden;
   //   overflow: hidden;
-  background-color: #134980;
+  background-color: #093068c4;
   height: 100%;
   box-sizing: border-box;
   border: 1px solid #237dbf;
@@ -106,7 +106,7 @@ export default {
   }
 
   .list {
-    background-color: #134980;
+    background-color: #09306800;
     padding-left: 10px;
     box-sizing: border-box;
     height: 90%;
@@ -201,7 +201,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 10px;
+        font-size: 14px;
       }
       .earlyWarningMonthly {
         color: #74fbf5;
@@ -209,7 +209,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 10px;
+        font-size: 14px;
       }
       .earlyWarningNumberToday {
         color: #74fbf5;
@@ -217,7 +217,7 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 10px;
+        font-size: 14px;
       }
       .timeUpdate {
         color: #74fbf5;
@@ -225,18 +225,18 @@ export default {
         // height: 12.5%;
 
         text-align: center;
-        font-size: 10px;
+        font-size: 14px;
       }
 
       .dutyDirectorToday {
         text-align: center;
         color: #74fbf5;
 
-        font-size: 10px;
+        font-size: 14px;
       }
       .numberOfEmployeesToday {
         text-align: center;
-        font-size: 10px;
+        font-size: 14px;
         color: #74fbf5;
       }
       .overflow {

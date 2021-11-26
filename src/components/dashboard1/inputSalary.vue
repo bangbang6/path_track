@@ -476,7 +476,7 @@ export default {
     background: #051d3f;
   }
   .chart {
-    background: #093068;
+    background: #093068c4;
 
     height: 40%;
     width: 100%;
@@ -486,7 +486,7 @@ export default {
     }
   }
   .main {
-    background: #093068;
+    background: #093068c4;
     height: 50%;
     display: flex;
     justify-content: space-between;

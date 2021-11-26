@@ -71,7 +71,7 @@ export default {
       series: [{
         type: "effectScatter",
         data: [{
-          symbolSize: 50, name: '医保', symbolOffset: [10, 20], value: 1, number: 888
+          symbolSize: 100, name: '医保', symbolOffset: [10, 20], value: 1, number: 888
         }],
         showEffectOn: 'render',
         rippleEffect: {
@@ -117,7 +117,7 @@ export default {
       }, {
         type: "effectScatter",
         data: [{
-          symbolSize: 40, name: '相护宝', symbolOffset: [-80, -20], value: 1, number: 333
+          symbolSize: 80, name: '相护宝', symbolOffset: [-140, -120], value: 1, number: 333
         }],
         showEffectOn: 'render',
         rippleEffect: {
@@ -163,7 +163,7 @@ export default {
       }, {
         type: "effectScatter",
         data: [{
-          symbolSize: 40, name: '疗效', symbolOffset: [-80, 80], value: 1, number: 415
+          symbolSize: 70, name: '疗效', symbolOffset: [-120, 100], value: 1, number: 415
         }],
         showEffectOn: 'render',
         rippleEffect: {
@@ -209,7 +209,7 @@ export default {
       }, {
         type: "effectScatter",
         data: [{
-          symbolSize: 40, name: '药品安全', symbolOffset: [80, 80], value: 1, number: 327
+          symbolSize: 60, name: '药品安全', symbolOffset: [100, 120], value: 1, number: 327
         }],
         showEffectOn: 'render',
         rippleEffect: {
@@ -255,7 +255,7 @@ export default {
       }, {
         type: "effectScatter",
         data: [{
-          symbolSize: 30, name: '个人隐私', symbolOffset: [60, -80], value: 1, number: 293
+          symbolSize: 65, name: '个人隐私', symbolOffset: [100, -120], value: 1, number: 293
         }],
         showEffectOn: 'render',
         rippleEffect: {
@@ -301,7 +301,7 @@ export default {
       }, {
         type: "effectScatter",
         data: [{
-          symbolSize: 35, name: '数据泄露', symbolOffset: [70, -20], value: 1, number: 280
+          symbolSize: 40, name: '数据泄露', symbolOffset: [90, -40], value: 1, number: 280
         }],
         showEffectOn: 'render',
         rippleEffect: {
@@ -347,7 +347,7 @@ export default {
       }, {
         type: "effectScatter",
         data: [{
-          symbolSize: 58, name: '新冠疫苗', symbolOffset: [-10, -60], value: 1, number: 920
+          symbolSize: 70, name: '新冠疫苗', symbolOffset: [-30, -80], value: 1, number: 920
         }],
         showEffectOn: 'render',
         rippleEffect: {
@@ -417,7 +417,7 @@ export default {
   .chart {
     width: 100%;
     height: 90%;
-    background: #093068;
+    background: #093068c4;
 
     .echarts {
       width: 100%;

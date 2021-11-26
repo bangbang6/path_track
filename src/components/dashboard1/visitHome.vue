@@ -147,7 +147,7 @@ export default {
   .chart {
     width: 100%;
     height: 90%;
-    background: #093068;
+    background: #093068c4;
 
     .echarts {
       width: 100%;
