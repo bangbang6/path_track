@@ -5,7 +5,7 @@
         <div class="day">{{nowDate}}</div>
         <div class="minute">{{nowMinute}}</div>
       </div>
-      <div class="title">基于区块链的医疗机构监管</div>
+      <div class="titleDiv"><div class="title"> 基于区块链的医疗机构监管</div></div>
       <div class="right">
         <div class="tianqi">晴</div>
         <div class="wendu">18-32°C</div>
@@ -106,13 +106,22 @@ export default {
         margin-top: 5px;
       }
     }
-    .title {
+    .titleDiv {
+
       height: 60%;
       width: 30%;
       letter-spacing: 6px;
       color: white;
-      font-weight: 800;
-      font-size: 20px;
+      font-weight: bold;
+      font-size:32px;
+      background-color: #041a40;
+      border: #1f2d3d 2px solid;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .title{
+        margin: auto;
+      }
     }
     .right {
       color: white;

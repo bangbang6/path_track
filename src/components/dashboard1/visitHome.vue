@@ -47,8 +47,8 @@ export default {
         enterable: true,  //设置鼠标是否可以移动到tooltip区域内
       },
       radar: [{  //配置雷达图坐标系组件，只适用于雷达图
-        center: ['50%', '56%'],  //设置中心坐标，数组的第1项是横坐标，第2项是纵坐标
-        radius: 80,  //设置圆的半径，数组的第一项是内半径，第二项是外半径
+        center: ['50%', '50%'],  //设置中心坐标，数组的第1项是横坐标，第2项是纵坐标
+        radius: '75%',  //设置圆的半径，数组的第一项是内半径，第二项是外半径
         startAngle: 90,  //设置坐标系起始角度，也就是第一个指示器轴的角度
         name: {  //设置（圆外的标签）雷达图每个指示器名称
           formatter: '{value}',
@@ -93,6 +93,7 @@ export default {
         color: 'white'
       },
       series: [{
+
         name: '雷达图',  //系列名称，用于tooltip的显示，图例筛选
         type: 'radar',  //系列类型: 雷达图
         //拐点样式，'circle'|'rect'|'roundRect'|'triangle'|'diamond'|'pin'|'arrow'|'none'

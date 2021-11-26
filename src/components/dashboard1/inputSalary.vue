@@ -49,6 +49,9 @@ export default {
         type: 'pie',
         left: '20%',
         top: 0,
+        splitLine:{
+          show:false
+        },
         data: [{
           legendname: '昨日:1256',
           value: 1256,
@@ -87,7 +90,7 @@ export default {
         center: ['35%', '50%'],
         radius: ['45%', '60%'],
 
-      }
+      },
 
     }
     this.options1 = {
@@ -122,7 +125,6 @@ export default {
         axisTick: {
           show: true
         },
-
 
         axisLabel: {
           textStyle: {
