@@ -2,21 +2,21 @@
   <div class="china-map">
     <div class="title">
       <span>></span>
-      <span class="light">></span>
+      <span class="light" style="margin-right: 5px;color: #237dbf">></span>
       全国今日就医热度统计
-      <span class="light"><</span>
+      <span class="light" style="margin-left: 5px;color: #237dbf">&nbsp<</span>
       <span><</span>
     </div>
     <div class="main">
       <div class="list">
         <div class="item">
-          <div class="white rank">排名</div>
-          <div class="white name">医院名称</div>
-          <div class="white frame">专科声誉</div>
-          <div class="white science">科研学术</div>
-          <div class="white score">综合得分</div>
+          <div class="white rank" style="font-size: 16px">排名</div>
+          <div class="white name" style="font-size: 16px">医院名称</div>
+          <div class="white frame" style="font-size: 16px">专科声誉</div>
+          <div class="white science" style="font-size: 16px">科研学术</div>
+          <div class="white score" style="font-size: 16px">综合得分</div>
         </div>
-        <div class="item" v-for="item in hospitals" :key="item.rank">
+        <div class="item" v-for="(item,index) in hospitals" :class="{wei:index%2==0,lig:index%2!=0}" :key="item.rank">
           <div class="rank">{{item.rank}}</div>
           <div class="name" @click="hanleClick(item.name)">{{item.name}}</div>
           <div class="frame">{{item.frame}}</div>
@@ -30,7 +30,7 @@
     </div>
   </div>
 </template>
- 
+
 <script>
 import OrderMap from './orderMap.vue'
 export default {
@@ -67,23 +67,29 @@ export default {
   }
 }
 </script>
- 
+
 <style lang="scss" scoped>
 .china-map {
   width: 100%;
   height: 100%;
   border: 1px solid #237dbf;
   color: #237dbf;
-
   .title {
     display: flex;
     width: 100%;
     height: 10%;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: bold;
     color: #237dbf;
-    background: #101010;
+    background: #051d3f;
+  }
+  .wei{
+    background-color: #051d3f;
+  }
+  .lig{
+    background-color: #134980;
   }
   .main {
     width: 100%;
@@ -98,7 +104,7 @@ export default {
       .item {
         display: flex;
         //align-items: center;
-        font-size: 12px;
+        font-size: 16px;
         height: 10%;
         padding-top: 2px;
         padding-bottom: 2px;
@@ -115,28 +121,31 @@ export default {
           flex: 10%;
           color: white;
           transform: scale(0.8);
+          margin: auto;
         }
         .name {
           flex: 30%;
           color: white;
           transform: scale(0.8);
+          margin: auto;
         }
         .frame {
           color: #71b5ea;
           flex: 20%;
           transform: scale(0.8);
+          margin: auto;
         }
         .science {
           color: #facc14;
           transform: scale(0.8);
-
           flex: 20%;
+          margin: auto;
         }
         .score {
           flex: 20%;
           transform: scale(0.8);
-
           color: #0bcae8;
+          margin: auto;
         }
       }
     }

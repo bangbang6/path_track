@@ -4,7 +4,7 @@
     <div class="chart" id="chart"></div>
   </div>
 </template>
- 
+
 <script>
 import echarts from 'echarts'
 export default {
@@ -390,7 +390,7 @@ export default {
   }
 }
 </script>
- 
+
 <style lang="scss" scoped>
 .keyword-people {
   width: 100%;
@@ -403,9 +403,10 @@ export default {
     height: 10%;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: bold;
     color: #237dbf;
-    background: #101010;
+    background: #051d3f;
   }
   .chart {
     width: 100%;

@@ -14,7 +14,7 @@
     </div>
   </div>
 </template>
- 
+
 <script>
 export default {
   data () {
@@ -135,7 +135,7 @@ export default {
   }
 }
 </script>
- 
+
 <style lang="scss" scoped>
 .total-people {
   width: 100%;
@@ -149,9 +149,10 @@ export default {
     height: 10%;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: bold;
     color: #237dbf;
-    background: #101010;
+    background: #051d3f;
   }
   .main {
     height: 90%;
