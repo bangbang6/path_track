@@ -43,9 +43,6 @@ export default {
         type: 'pie',
         left: '20%',
         top: 0,
-        splitLine:{
-          show:false
-        },
         data: [{
           legendname: '昨日:1256',
           value: 1256,
@@ -87,183 +84,369 @@ export default {
       },
 
     }
-    this.options1 = {
-      xAxis: {
-
-
-        type: 'value',
-        axisTick: {
-          alignWithLabel: true
-        },
+    this.options1={
+      textStyle: {
+        color: "#fff"
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      yAxis: {
+        type: 'category',
+        data: ['复诊', '初诊'],
+        inverse: true,
         axisLine: {
-
           lineStyle: {
             color: 'white',
           }
         },
-
         axisLabel: {
-          fontSize: 10
+          fontSize: 11
         }
-
       },
-
-
-      yAxis: {
-        type: 'category',
-        data: ["Mahlendes", "Tickern"],
-
-        axisLine: {
-          show: false
-        },
-        axisTick: {
-          show: true
-        },
-
-        axisLabel: {
-          textStyle: {
-            color: 'white',
-            fontSize: '10',
-          }
-        },
-      },
-      series: {
-        type: 'bar',
-        data: [0.9, 2.1],
-        barWidth: "30%",
-        label: {   //设置柱状图上显示  对应值
-          show: true,
-          position: 'right',
-          color: '#fff',
-          fontSize: 10
-        },
-      },
-      color: '#3398DB',
-      grid: {
-        top: 10,
-        left: 4,
-        right: 14,
-        bottom: 20,
-      }
-    }
-    this.options2 = {
       xAxis: {
-
         type: 'value',
-        axisTick: {
-          alignWithLabel: true
-        },
         axisLine: {
-
           lineStyle: {
             color: 'white',
           }
         },
-
         axisLabel: {
           fontSize: 10
         }
-
-
       },
 
+      series: [
+        {
+          barWidth: "30%",
+          labelLine: {
+            normal: {
+              lineStyle: {
+                color: 'rgba(255, 255, 255, 0.3)'
+              },
+            }
+          },
+          label: {
+            show: true,
+            position: 'right'
+          },
+          data: [0.9, 2.1],
+          type: 'bar'
+        }
+      ],
+      color: '#3398DB',
+          grid: {
+            top: 10,
+            left: 30,
+           // right: 12,
+            bottom: 20,
+          },
+      legend: {
+        show: true
+      },
+    }
+    this.options2={
+      textStyle: {
+        color: "#fff"
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
       yAxis: {
         type: 'category',
-        data: ["Mahlendes", "Tickern"],
-
+        data: ['自费', '医保'],
+        inverse: true,
         axisLine: {
-          show: false
-        },
-        axisTick: {
-          show: true
-        },
-
-
-        axisLabel: {
-          textStyle: {
-            color: '#000',
-            fontSize: '10',
-          }
-        },
-      },
-      series: {
-        type: 'bar',
-        data: [1.4, 2.7],
-        barWidth: "30%",
-        label: {   //设置柱状图上显示  对应值
-          show: true,
-          position: 'right',
-          color: '#fff',
-          fontSize: 10
-        },
-      },
-      color: '#3398DB',
-      grid: {
-        top: 10,
-        left: 4,
-        right: 14,
-        bottom: 20,
-      }
-    }
-    this.options3 = {
-      xAxis: {
-
-        type: 'value',
-        axisTick: {
-          alignWithLabel: true
-        },
-        axisLine: {
-
           lineStyle: {
             color: 'white',
           }
         },
-
+        axisLabel: {
+          fontSize: 11
+        }
+      },
+      xAxis: {
+        type: 'value',
+        axisLine: {
+          lineStyle: {
+            color: 'white',
+          }
+        },
         axisLabel: {
           fontSize: 10
         }
-
-
       },
 
-      yAxis: {
-        type: 'category',
-        data: ["Mahlendes", "Tickern"],
-
-        axisLine: {
-          show: false
-        },
-        axisTick: {
-          show: true
-        },
-
-
-        axisLabel: {
-          textStyle: {
-            color: '#000',
-            fontSize: '10',
-          }
-        },
-      },
-      series: {
-        type: 'bar',
-        data: [5.6, 1.5],
-        barWidth: "30%",
-        label: {   //设置柱状图上显示  对应值
-          show: true,
-          position: 'right',
-          color: '#fff',
-          fontSize: 10
-        },
-      },
+      series: [
+        {
+          barWidth: "30%",
+          labelLine: {
+            normal: {
+              lineStyle: {
+                color: 'rgba(255, 255, 255, 0.3)'
+              },
+            }
+          },
+          label: {
+            show: true,
+            position: 'right'
+          },
+          data: [1.4, 2.7],
+          type: 'bar'
+        }
+      ],
       color: '#3398DB',
       grid: {
         top: 10,
-        left: 4,
-        right: 14,
+        left: 30,
+        // right: 12,
         bottom: 20,
-      }
+      },
+      legend: {
+        show: true
+      },
     }
+    this.options3={
+      textStyle: {
+        color: "#fff"
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      yAxis: {
+        type: 'category',
+        data: ['住院', '门诊'],
+        inverse: true,
+        axisLine: {
+          lineStyle: {
+            color: 'white',
+          }
+        },
+        axisLabel: {
+          fontSize: 11
+        }
+      },
+      xAxis: {
+        type: 'value',
+        axisLine: {
+          lineStyle: {
+            color: 'white',
+          }
+        },
+        axisLabel: {
+          fontSize: 10
+        }
+      },
+
+      series: [
+        {
+          barWidth: "30%",
+          labelLine: {
+            normal: {
+              lineStyle: {
+                color: 'rgba(255, 255, 255, 0.3)'
+              },
+            }
+          },
+          label: {
+            show: true,
+            position: 'right'
+          },
+          data: [5.6, 1.5],
+          type: 'bar'
+        }
+      ],
+      color: '#3398DB',
+      grid: {
+        top: 10,
+        left: 30,
+        // right: 12,
+        bottom: 20,
+      },
+      legend: {
+        show: true
+      },
+    }
+    // this.options1 = {
+    //   xAxis: {
+    //     type: 'value',
+    //     axisTick: {
+    //       alignWithLabel: true
+    //     },
+    //     axisLine: {
+    //
+    //       lineStyle: {
+    //         color: 'white',
+    //       }
+    //     },
+    //     //
+    //     // axisLabel: {
+    //     //   fontSize: 10
+    //     // }
+    //   },
+    //   yAxis: {
+    //     type: 'category',
+    //     data: ['复诊', '初诊'],
+    //     axisLine: {
+    //       show: false
+    //     },
+    //     axisTick: {
+    //       show: true
+    //     },
+    //
+    //     axisLabel: {
+    //       textStyle: {
+    //         color: 'white',
+    //         fontSize: '100',
+    //       }
+    //     },
+    //   },
+    //   series: {
+    //     type: 'bar',
+    //     data: [0.9, 2.1],
+    //     barWidth: "30%",
+    //     label: {   //设置柱状图上显示  对应值
+    //       show: true,
+    //       position: 'right',
+    //       color: '#fff',
+    //       fontSize: 10
+    //     },
+    //   },
+    //    color: '#3398DB',
+    //   grid: {
+    //     top: 10,
+    //     left: 4,
+    //     right: 14,
+    //     bottom: 20,
+    //   }
+    // }
+    // this.options2 = {
+    //   xAxis: {
+    //
+    //     type: 'value',
+    //     axisTick: {
+    //       alignWithLabel: true
+    //     },
+    //     axisLine: {
+    //
+    //       lineStyle: {
+    //         color: 'white',
+    //       }
+    //     },
+    //
+    //     axisLabel: {
+    //       fontSize: 10
+    //     }
+    //
+    //
+    //   },
+    //
+    //   yAxis: {
+    //     type: 'category',
+    //     data: ['复诊', '初诊'],
+    //
+    //     axisLine: {
+    //       show: false
+    //     },
+    //     axisTick: {
+    //       show: true
+    //     },
+    //
+    //
+    //     axisLabel: {
+    //       textStyle: {
+    //         color: '#000',
+    //         fontSize: '10',
+    //       }
+    //     },
+    //   },
+    //   series: {
+    //     type: 'bar',
+    //     data: [1.4, 2.7],
+    //     barWidth: "30%",
+    //     label: {   //设置柱状图上显示  对应值
+    //       show: true,
+    //       position: 'right',
+    //       color: '#fff',
+    //       fontSize: 10
+    //     },
+    //   },
+    //   color: '#3398DB',
+    //   grid: {
+    //     top: 10,
+    //     left: 4,
+    //     right: 14,
+    //     bottom: 20,
+    //   }
+    // }
+    // this.options3 = {
+    //   xAxis: {
+    //
+    //     type: 'value',
+    //     axisTick: {
+    //       alignWithLabel: true
+    //     },
+    //     axisLine: {
+    //
+    //       lineStyle: {
+    //         color: 'white',
+    //       }
+    //     },
+    //
+    //     axisLabel: {
+    //       fontSize: 10
+    //     }
+    //
+    //
+    //   },
+    //
+    //   yAxis: {
+    //     type: 'category',
+    //     data: ['复诊', '初诊'],
+    //
+    //     axisLine: {
+    //       show: false
+    //     },
+    //     axisTick: {
+    //       show: true
+    //     },
+    //
+    //
+    //     axisLabel: {
+    //       textStyle: {
+    //         color: '#000',
+    //         fontSize: '10',
+    //       }
+    //     },
+    //   },
+    //   series: {
+    //     type: 'bar',
+    //     data: [5.6, 1.5],
+    //     barWidth: "30%",
+    //     label: {   //设置柱状图上显示  对应值
+    //       show: true,
+    //       position: 'right',
+    //       color: '#fff',
+    //       fontSize: 10
+    //     },
+    //   },
+    //   color: '#3398DB',
+    //   grid: {
+    //     top: 10,
+    //     left: 4,
+    //     right: 14,
+    //     bottom: 20,
+    //   }
+    // }
   }
 }
 </script>
