@@ -1,6 +1,12 @@
 <template>
   <div class="total-people">
-    <div class="title">全国就医时间段人次统计</div>
+    <div class="title">
+       <span>></span>
+      <span class="light" style="margin-right: 5px;color: #237dbf">></span>
+      全国就医时间段人次统计
+      <span class="light" style="margin-left: 5px;color: #237dbf">&nbsp<</span>
+      <span><</span>
+    </div>
     <div class="main">
       <div class="total">
         <div class="pre">共计</div>

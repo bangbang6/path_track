@@ -16,7 +16,12 @@
           <div class="white science" style="font-size: 16px">科研学术</div>
           <div class="white score" style="font-size: 16px">综合得分</div>
         </div>
-        <div class="item" v-for="(item,index) in hospitals" :class="{wei:index%2==0,lig:index%2!=0}" :key="item.rank">
+        <div
+          class="item"
+          v-for="(item,index) in hospitals"
+          :class="{wei:index%2==0,lig:index%2!=0}"
+          :key="item.rank"
+        >
           <div class="rank">{{item.rank}}</div>
           <div class="name" @click="hanleClick(item.name)">{{item.name}}</div>
           <div class="frame">{{item.frame}}</div>
@@ -85,10 +90,10 @@ export default {
     color: #237dbf;
     background: #051d3f;
   }
-  .wei{
+  .wei {
     background-color: #051d3f;
   }
-  .lig{
+  .lig {
     background-color: #134980;
   }
   .main {
@@ -100,7 +105,7 @@ export default {
       padding: 5px;
       padding-top: 20px;
       box-sizing: border-box;
-      width: 40%;
+      width: 45%;
       .item {
         display: flex;
         //align-items: center;
@@ -150,7 +155,7 @@ export default {
       }
     }
     .map {
-      width: 60%;
+      width: 55%;
       height: 100%;
     }
   }

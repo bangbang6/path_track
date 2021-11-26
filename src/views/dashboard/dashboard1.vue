@@ -25,7 +25,7 @@
           <china-map />
         </div>
         <div class="menzheng">
-          <men-zheng />
+          <total-rate />
         </div>
       </div>
       <div class="right">
@@ -46,6 +46,7 @@ import InputSalary from '@/components/dashboard1/inputSalary.vue'
 import MenZheng from '@/components/dashboard1/menZheng.vue'
 import VisitHome from '@/components/dashboard1/visitHome.vue'
 import KeywordPeople from '@/components/dashboard1/keywordPeople.vue'
+import totalRate from '@/components/dashboard1/totalRate.vue'
 import ChinaMap from '@/components/dashboard1/chinaMap.vue'
 
 export default {
@@ -55,7 +56,8 @@ export default {
     MenZheng,
     VisitHome,
     KeywordPeople,
-    ChinaMap
+    ChinaMap,
+    totalRate
   },
   data () {
 

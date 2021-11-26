@@ -1,6 +1,12 @@
 <template>
   <div class="keyword-people">
-    <div class="title">民生关注关键词</div>
+    <div class="title">
+      <span>></span>
+      <span class="light" style="margin-right: 5px;color: #237dbf">></span>
+      民生关注关键词
+      <span class="light" style="margin-left: 5px;color: #237dbf">&nbsp<</span>
+      <span><</span>
+    </div>
     <div class="chart" id="chart"></div>
   </div>
 </template>
