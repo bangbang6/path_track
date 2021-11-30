@@ -43,31 +43,39 @@ export const constantRoutes = [
     component: () => import('@/views/login/register'),
     hidden: true
   },
-  // {
-  //   path: '/dashboard1',
-  //   name: 'dashboard1',
-  //   component: () => import('@/views/dashboard/dashboard1'),
-  //   meta: { title: '机构大屏', icon: 'el-icon-s-order' }
-  // },
-  // {
-  //   path: '/dashboard2',
-  //   name: 'dashboard2',
-  //   component: () => import('@/views/dashboard/dashboard2'),
-  //   meta: { title: '院长大屏', icon: 'el-icon-s-order' }
-  // },
-  // {
-  //   path: '/dataerror',
-  //   name: 'dataerror',
-  //   component: () => import('@/views/dashboard/dataError'),
-  //   meta: { title: '院长大屏', icon: 'el-icon-s-order' }
-  // },
+  //没后台登录时候
+  {
+    path: '/dashboard1',
+    name: 'dashboard1',
+    component: () => import('@/views/dashboard/dashboard1'),
+    meta: { title: '机构大屏', icon: 'el-icon-s-order' }
+  },
+  {
+    path: '/dashboard2',
+    name: 'dashboard2',
+    component: () => import('@/views/dashboard/dashboard2'),
+    meta: { title: '院长大屏', icon: 'el-icon-s-order' }
+  },
+  {
+    path: '/dataerror',
+    name: 'dataerror',
+    component: () => import('@/views/dashboard/dataError'),
+    meta: { title: '院长大屏', icon: 'el-icon-s-order' }
+  },
   {
     path: '/patentDetail',
     name: 'patentDetail',
     component: () => import('@/views/dashboard/patentInfo'),
     meta: { title: '患者详情', icon: 'el-icon-s-order' }
   },
- 
+  // {
+  //   path: '/Home',
+  //   name: 'Home',
+  //   component: () => import('@/views/home/index'),
+  //   meta: { title: '患者列表', icon: 'el-icon-s-home' }
+  // },
+
+
   {
     path: '/404',
     component: () => import('@/views/404'),

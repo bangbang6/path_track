@@ -49,7 +49,7 @@
             <div class="status overflow">
               <el-tag
                 size="mini"
-                :type="item.status === '路径不当'?'danger': item.status === '数据不一致'?'warning':item.status==='时间异常'?'info':item.status==='费用异常'?'success':'primary'"
+                :type="item.status === '顺序不当'?'danger': item.status === '数据不一致'?'warning':item.status==='时间异常'?'info':item.status==='费用异常'?'success':'primary'"
                 effect="dark"
               >{{item.status}}</el-tag>
             </div>
@@ -80,7 +80,7 @@ export default {
     return {
       options: [{
         value: '选项1',
-        label: '路径不当'
+        label: '顺序不当'
       }, {
         value: '选项2',
         label: '数据不一致'
@@ -151,7 +151,7 @@ export default {
     let freeError = []
     let len = errorDetailData.length
     errorDetailData.forEach(item => {
-      if (item.status === '路径不当') {
+      if (item.status === '顺序不当') {
         NotSatifyRootData.push(item)
       } else if (item.status === '数据不一致') {
         NotFindPolicyData.push(item)
@@ -170,7 +170,7 @@ export default {
         type: 'pie',
         data: [
           {
-            legondname: '路径不当',
+            legondname: '顺序不当',
             value: NotSatifyRootData.length,
             percent: `${(NotSatifyRootData.length / len).toFixed(2) * 100}%`,
             itemStyle: {
