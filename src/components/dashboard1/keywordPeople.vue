@@ -117,7 +117,7 @@ export default {
       }, {
         type: "effectScatter",
         data: [{
-          symbolSize: 80, name: '相护宝', symbolOffset: [-140, -120], value: 1, number: 333
+          symbolSize: 60, name: '相护宝', symbolOffset: [-120, -80], value: 1, number: 333
         }],
         showEffectOn: 'render',
         rippleEffect: {
@@ -209,7 +209,7 @@ export default {
       }, {
         type: "effectScatter",
         data: [{
-          symbolSize: 60, name: '药品安全', symbolOffset: [100, 120], value: 1, number: 327
+          symbolSize: 60, name: '药品安全', symbolOffset: [100, 100], value: 1, number: 327
         }],
         showEffectOn: 'render',
         rippleEffect: {
@@ -255,7 +255,7 @@ export default {
       }, {
         type: "effectScatter",
         data: [{
-          symbolSize: 65, name: '个人隐私', symbolOffset: [100, -120], value: 1, number: 293
+          symbolSize: 40, name: '个人隐私', symbolOffset: [140, -80], value: 1, number: 293
         }],
         showEffectOn: 'render',
         rippleEffect: {

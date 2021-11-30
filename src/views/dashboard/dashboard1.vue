@@ -108,7 +108,7 @@ export default {
     }
     .titleDiv {
       height: 60%;
-      width: 30%;
+      width: 40%;
       letter-spacing: 6px;
       color: white;
       font-weight: bold;

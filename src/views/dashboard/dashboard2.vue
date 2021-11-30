@@ -245,8 +245,8 @@ export default {
   }
   .wrapper {
     height: 88%;
-    width: 90%;
-    margin-left: 5%;
+    width: 96%;
+    margin-left: 2%;
     .navs {
       height: 15%;
       display: flex;

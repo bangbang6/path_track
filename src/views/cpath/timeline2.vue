@@ -171,26 +171,27 @@ export default {
         type: 'primary'
 
       }, {
-        content: ' 医生开取血凭单   2021-11-14 20:46',
+        content: '  从贮血冰箱内取出所需要的血液 2021-11-14 20:46 ',
         timestamp: '',
         size: 'normal',
+        class: "error"
+
       }, {
-        content: '  核对所发放血液信息   2021-11-15 20:46',
+        content: '  在血站电脑管理系统上确认出库 2021-11-15 20:46 ',
+        timestamp: '',
+        size: 'normal',
+
+      }, {
+        content: ' 医生开取血凭单   2021-11-16 20:46',
+        timestamp: '',
+        size: 'normal',
+        class: "error"
+
+      }, {
+        content: '  核对所发放血液信息   2021-11-17 20:46',
         timestamp: '',
         size: 'normal',
         class: "normal"
-      }, {
-        content: '  在血站电脑管理系统上确认出库 2021-11-16 20:46 ',
-        timestamp: '',
-        size: 'normal',
-        class: "error"
-
-      }, {
-        content: '  从贮血冰箱内取出所需要的血液 2021-11-17 20:46 ',
-        timestamp: '',
-        size: 'normal',
-        class: "error"
-
       }],
       activeNames: ['2'],
     }
