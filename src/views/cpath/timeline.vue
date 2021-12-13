@@ -47,10 +47,18 @@
       </el-collapse-item>
       <el-collapse-item name="2" :style="styled">
         <template slot="title">
-          <i class="el-icon-more" :style="{color:'#2CC2F7',fontSize:'20px',marginRight:'8px'}"></i>
-          <span :style="{marginRight:'8px'}">阶段三</span>
-          <span :style="{marginRight:'8px'}">2021-11-05 09:35:56 - 至今</span>
-          <el-tag type="primary" effect="dark" size="mini">正在进行</el-tag>
+          <div class="wrapper">
+            <i class="el-icon-more" :style="{color:'#2CC2F7',fontSize:'20px',marginRight:'8px'}"></i>
+            <span :style="{marginRight:'8px'}">阶段三</span>
+            <span :style="{marginRight:'8px'}">2021-11-05 09:35:56 - 至今</span>
+            <el-tag type="primary" effect="dark" size="mini">正在进行</el-tag>
+            <el-button
+              type="primary"
+              size="mini"
+              :style="{float:'right'}"
+              @click.prevent="edit(2)"
+            >编辑</el-button>
+          </div>
         </template>
         <el-timeline>
           <el-timeline-item
@@ -165,7 +173,16 @@ export default {
   methods: {
     handleChange (e) {
 
-    }
+    },
+    edit (index) {
+      this.$router.push({
+        path: '/Path/Scan' + index,
+        query: {
+          id: this.$route.query.id,
+          where: index
+        }
+      })
+    },
   }
 }
 </script>
@@ -179,6 +196,16 @@ export default {
   .el-collapse {
     overflow: auto;
     height: 100%;
+    .wrapper {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      .el-button {
+        position: absolute;
+        right: 20px;
+      }
+    }
   }
 }
 </style>
