@@ -35,7 +35,14 @@
             align="center"
           >
             <template slot-scope="scope">
-              <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
+              <el-tag
+                :type="scope.row.status | statusFilter"
+              >{{ scope.row.status=='变异'?'执行中':scope.row.status }}</el-tag>
+              <el-tag
+                type="danger"
+                v-if="scope.row.status=='变异'"
+                :style="{marginLeft:'10px'}"
+              >{{ scope.row.status }}</el-tag>
             </template>
           </el-table-column>
           <!--          <el-table-column label="入院时间" width="200" sortable prop="date" align="center">-->
@@ -96,7 +103,14 @@
             align="center"
           >
             <template slot-scope="scope">
-              <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
+              <el-tag
+                :type="scope.row.status | statusFilter"
+              >{{ scope.row.status=='变异'?'执行中':scope.row.status }}</el-tag>
+              <el-tag
+                type="danger"
+                v-if="scope.row.status=='变异'"
+                :style="{marginLeft:'10px'}"
+              >{{ scope.row.status }}</el-tag>
             </template>
           </el-table-column>
           <el-table-column label="入院时间" width="200" sortable prop="date" align="center">
@@ -116,7 +130,7 @@
               <!--              <el-button v-if=" scope.row.status === '变异' " type="warning" size="small" @click="ground1(scope.row)" >变异原因</el-button>-->
               <!--              <el-button v-if=" scope.row.status === '执行中' " type="warning" size="small" @click="evaluate1(scope.row)" >评估</el-button>-->
               <el-button
-                v-if=" scope.row.status === '执行中' "
+                v-if=" scope.row.status === '执行中'|| scope.row.status === '变异' "
                 type="warning"
                 size="small"
                 @click="dialog2 = true; evaluate2(scope.row)"
@@ -163,8 +177,15 @@
             >搜索</el-button>
           </div>
         </el-form-item>
+
         <el-form-item v-if="sub.proce === 2 && errorTemplateStatus" label="变异模板">
-          <div class="wrapper" :style="{border:'1px solid black'}">
+          <div
+            v-loading="loading"
+            element-loading-text="智能AI为你推荐最佳模板"
+            element-loading-spinner="el-icon-loading"
+            element-loading-background="rgba(0, 0, 0, 0.8)"
+          ></div>
+          <div class="wrapper" :style="{border:'1px solid black'}" v-if="!loading">
             <error-template :index="templateIndex" :templateData="templateData" @next="nextStep" />
           </div>
         </el-form-item>
@@ -186,6 +207,7 @@
 import { getList, getList2, getOut, getProcess } from '@/api/table'
 import { addtoPath, eValuate } from '@/api/record'
 import ErrorTemplate from './ErrorTemplate'
+import { errorTemplateData } from '../mock.js'
 export default {
   components: { ErrorTemplate },
   filters: {
@@ -193,11 +215,12 @@ export default {
       const statusMap = {
         '正常结束': 'success',
         '执行中': 'primary',
-        '变异': 'danger',
-        '未加入': 'warning'
+        '未加入': 'warning',
+        '变异': "primary"
       }
       return statusMap[status]
     },
+
     statusFilter2 (status) {
       const statusMap = {
         '0': '阶段1',
@@ -210,6 +233,7 @@ export default {
   },
   data () {
     return {
+      loading: false,
       errorTemplateWorks: [],
       templateIndex: 0,
       errorTemplateStatus: false,
@@ -314,356 +338,7 @@ export default {
       this.sub.date = year + '-' + month + '-' + day
       this.sub.time = hour + ':' + minute + ':' + second
     }, 1000)
-    this.errorTemplateWorks = [
-
-      {
-        money: "1462",
-        score: "9.62",
-        info: [
-          {
-            work1: [
-              '询问病史及体格检查',
-              '完成病历书写',
-              '开实验室检查单',
-              '对症支持治疗',
-              '病情告知，必要时向患者家属告病重或病危通知，并签署病重或病危通知书',
-              '患者家属签署各种必要的知情同意书'
-            ],
-            work2: [
-              '血液病护理常规',
-              '二级护理',
-              '饮食',
-              '视病情通知病重或病危',
-              '其他医嘱'
-            ],
-            work3: [
-              '常规检查',
-              '功能性检查',
-              '乙肝二对半',
-              '射线检查',
-              '输血（有指征时）等支持对症治疗',
-              '其他医嘱',
-              '细化检查'
-            ],
-            work4: [
-              '介绍病房环境、设施和设备',
-              '入院护理评估',
-              '宣教']
-          },
-
-          {
-            work1: [
-              '上级医师查房',
-              '完成入院检查',
-              '继续对症支持治疗',
-              '完成必要的相关科室会诊',
-              '完成上级医师查房记录等病历书写',
-              '向患者及家属交待病情及其注意事项'
-            ],
-            work2: [
-              '患者既往基础用药',
-              '其他医嘱'
-            ],
-            work3: [
-              '骨髓穿刺和骨髓活检（必要时）',
-              '骨髓形态学、病理、免疫组化（必要时）',
-              '外周血免疫表型',
-              '外周血细胞(CpG刺激)/分子遗传学',
-              '分子生物学检测TP53基因突变及IGHV突变状态',
-              '自身免疫系统疾病筛查',
-              '输血（有指征时）',
-              '其他医嘱'
-            ],
-            work4: [
-              '观察患者病情变化']
-          },
-          {
-            work1: [
-              '上级医师查房',
-              '根据体检、各项检查结果和既往资料，进行鉴别诊断和确定诊断',
-              '根据其他检查结果判断是否合并其他疾病',
-              '开始治疗，需要化疗者家属签署化疗知情同意书',
-              '保护重要脏器功能',
-              '注意观察化疗药物的副作用，复查血常规、血生化、电解质等，并对症处理',
-              '完成病程记录'
-            ],
-            work2: [
-              '苯丁酸氮芥10mg/(m^2*d)',
-              '利妥昔单抗',
-              '氟达拉滨',
-              '环磷酰胺',
-              '甲泼尼龙1g/(m^2*d)',
-              '伊布替尼420mg/d',
-              '重要脏器保护，碱化水化利尿等治疗',
-              '必要时抗感染等支持治疗',
-              '其他医嘱'
-            ],
-            work3: [
-              '复查血常规',
-              '复查血生化、电解质',
-              '输血（有指征时）',
-              '对症支持',
-              '其他医嘱'
-            ],
-            work4: [
-              '观察患者病情变化',
-              '心理与生活护理',
-              '化疗期间嘱患者多饮水'
-            ]
-          },
-          {
-            work1: [
-              '上级医师查房，进行评估，确定有无并发症情况，明确是否出院',
-              '完成出院记录、病案首页、出院证明书等',
-              '向患者交代出院后的注意事项，如：返院复诊的时间、地点，发生紧急情况时的处理等'
-            ],
-            work2: [
-              '出院带药',
-              '定期门诊随访',
-              '监测血常规'
-            ],
-            work3: [
-              '其他医嘱'
-            ],
-            work4: [
-              '指导患者办理出院手续'
-            ]
-          }
-        ]
-      }
-
-      ,
-      {
-        money: "1876",
-        score: "8.32",
-        info: [ //第二个模板
-          {
-            work1: [
-              '询问病史及体格检查222',
-              '完成病历书写',
-              '开实验室检查单',
-              '对症支持治疗',
-              '病情告知，必要时向患者家属告病重或病危通知，并签署病重或病危通知书',
-              '患者家属签署各种必要的知情同意书'
-            ],
-            work2: [
-              '血液病护理常规',
-              '二级护理',
-              '饮食',
-              '视病情通知病重或病危',
-              '其他医嘱'
-            ],
-            work3: [
-              '常规检查',
-              '功能性检查',
-              '乙肝二对半',
-              '射线检查',
-              '输血（有指征时）等支持对症治疗',
-              '其他医嘱',
-              '细化检查'
-            ],
-            work4: [
-              '介绍病房环境、设施和设备',
-              '入院护理评估',
-              '宣教']
-          },
-
-          {
-            work1: [
-              '上级医师查房',
-              '完成入院检查',
-              '继续对症支持治疗',
-              '完成必要的相关科室会诊',
-              '完成上级医师查房记录等病历书写',
-              '向患者及家属交待病情及其注意事项'
-            ],
-            work2: [
-              '患者既往基础用药',
-              '其他医嘱'
-            ],
-            work3: [
-              '骨髓穿刺和骨髓活检（必要时）',
-              '骨髓形态学、病理、免疫组化（必要时）',
-              '外周血免疫表型',
-              '外周血细胞(CpG刺激)/分子遗传学',
-              '分子生物学检测TP53基因突变及IGHV突变状态',
-              '自身免疫系统疾病筛查',
-              '输血（有指征时）',
-              '其他医嘱'
-            ],
-            work4: [
-              '观察患者病情变化']
-          },
-          {
-            work1: [
-              '上级医师查房',
-              '根据体检、各项检查结果和既往资料，进行鉴别诊断和确定诊断',
-              '根据其他检查结果判断是否合并其他疾病',
-              '开始治疗，需要化疗者家属签署化疗知情同意书',
-              '保护重要脏器功能',
-              '注意观察化疗药物的副作用，复查血常规、血生化、电解质等，并对症处理',
-              '完成病程记录'
-            ],
-            work2: [
-              '苯丁酸氮芥10mg/(m^2*d)',
-              '利妥昔单抗',
-              '氟达拉滨',
-              '环磷酰胺',
-              '甲泼尼龙1g/(m^2*d)',
-              '伊布替尼420mg/d',
-              '重要脏器保护，碱化水化利尿等治疗',
-              '必要时抗感染等支持治疗',
-              '其他医嘱'
-            ],
-            work3: [
-              '复查血常规',
-              '复查血生化、电解质',
-              '输血（有指征时）',
-              '对症支持',
-              '其他医嘱'
-            ],
-            work4: [
-              '观察患者病情变化',
-              '心理与生活护理',
-              '化疗期间嘱患者多饮水'
-            ]
-          },
-          {
-            work1: [
-              '上级医师查房，进行评估，确定有无并发症情况，明确是否出院',
-              '完成出院记录、病案首页、出院证明书等',
-              '向患者交代出院后的注意事项，如：返院复诊的时间、地点，发生紧急情况时的处理等'
-            ],
-            work2: [
-              '出院带药',
-              '定期门诊随访',
-              '监测血常规'
-            ],
-            work3: [
-              '其他医嘱'
-            ],
-            work4: [
-              '指导患者办理出院手续'
-            ]
-          }
-        ]
-      },
-      {
-        money: "1242",
-        score: "9.41",
-        info: [
-          {
-            work1: [
-              '询问病史及体格检查',
-              '完成病历书写',
-              '开实验室检查单',
-              '对症支持治疗',
-              '病情告知，必要时向患者家属告病重或病危通知，并签署病重或病危通知书',
-              '患者家属签署各种必要的知情同意书'
-            ],
-            work2: [
-              '血液病护理常规',
-              '二级护理',
-              '饮食',
-              '视病情通知病重或病危',
-              '其他医嘱'
-            ],
-            work3: [
-              '常规检查',
-              '功能性检查',
-              '乙肝二对半',
-              '射线检查',
-              '输血（有指征时）等支持对症治疗',
-              '其他医嘱',
-              '细化检查'
-            ],
-            work4: [
-              '介绍病房环境、设施和设备',
-              '入院护理评估',
-              '宣教']
-          },
-
-          {
-            work1: [
-              '上级医师查房',
-              '完成入院检查',
-              '继续对症支持治疗',
-              '完成必要的相关科室会诊',
-              '完成上级医师查房记录等病历书写',
-              '向患者及家属交待病情及其注意事项'
-            ],
-            work2: [
-              '患者既往基础用药',
-              '其他医嘱'
-            ],
-            work3: [
-              '骨髓穿刺和骨髓活检（必要时）',
-              '骨髓形态学、病理、免疫组化（必要时）',
-              '外周血免疫表型',
-              '外周血细胞(CpG刺激)/分子遗传学',
-              '分子生物学检测TP53基因突变及IGHV突变状态',
-              '自身免疫系统疾病筛查',
-              '输血（有指征时）',
-              '其他医嘱'
-            ],
-            work4: [
-              '观察患者病情变化']
-          },
-          {
-            work1: [
-              '上级医师查房',
-              '根据体检、各项检查结果和既往资料，进行鉴别诊断和确定诊断',
-              '根据其他检查结果判断是否合并其他疾病',
-              '开始治疗，需要化疗者家属签署化疗知情同意书',
-              '保护重要脏器功能',
-              '注意观察化疗药物的副作用，复查血常规、血生化、电解质等，并对症处理',
-              '完成病程记录'
-            ],
-            work2: [
-              '苯丁酸氮芥10mg/(m^2*d)',
-              '利妥昔单抗',
-              '氟达拉滨',
-              '环磷酰胺',
-              '甲泼尼龙1g/(m^2*d)',
-              '伊布替尼420mg/d',
-              '重要脏器保护，碱化水化利尿等治疗',
-              '必要时抗感染等支持治疗',
-              '其他医嘱'
-            ],
-            work3: [
-              '复查血常规',
-              '复查血生化、电解质',
-              '输血（有指征时）',
-              '对症支持',
-              '其他医嘱'
-            ],
-            work4: [
-              '观察患者病情变化',
-              '心理与生活护理',
-              '化疗期间嘱患者多饮水'
-            ]
-          },
-          {
-            work1: [
-              '上级医师查房，进行评估，确定有无并发症情况，明确是否出院',
-              '完成出院记录、病案首页、出院证明书等',
-              '向患者交代出院后的注意事项，如：返院复诊的时间、地点，发生紧急情况时的处理等'
-            ],
-            work2: [
-              '出院带药',
-              '定期门诊随访',
-              '监测血常规'
-            ],
-            work3: [
-              '其他医嘱'
-            ],
-            work4: [
-              '指导患者办理出院手续'
-            ]
-          }
-        ]
-      }
-    ]
+    this.errorTemplateWorks = errorTemplateData
 
 
   },
@@ -688,7 +363,14 @@ export default {
       this.templateIndex = (this.templateIndex + 1) % 3
     },
     showTemplate () {
+
       this.errorTemplateStatus = true
+      this.loading = true
+      setInterval(() => {
+        this.loading = false
+
+      }, 5000)
+
     },
     fetchData () {
       this.listLoading = true

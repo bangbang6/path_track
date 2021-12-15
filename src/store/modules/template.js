@@ -1,6 +1,8 @@
+import { errorTemplateData } from "@/views/mock"
 const state = {
-  template:{},
-  errorStatus:false
+  template:errorTemplateData[0],
+  errorStatus:false,
+  money:0
 }
 const mutations = {
   changeTemplate(state,templateInfo){
@@ -8,7 +10,10 @@ const mutations = {
   },
   changeErrorStatus(state){
     state.errorStatus = true
-  }
+  },
+  changeMoney(state,money){
+    state.money = money
+  },
 }
 
 

@@ -44,24 +44,24 @@ export const constantRoutes = [
     hidden: true
   },
   //没后台登录时候
-  {
-    path: '/dashboard1',
-    name: 'dashboard1',
-    component: () => import('@/views/dashboard/dashboard1'),
-    meta: { title: '机构大屏', icon: 'el-icon-s-order' }
-  },
-  {
-    path: '/dashboard2',
-    name: 'dashboard2',
-    component: () => import('@/views/dashboard/dashboard2'),
-    meta: { title: '院长大屏', icon: 'el-icon-s-order' }
-  },
-  {
-    path: '/dataerror',
-    name: 'dataerror',
-    component: () => import('@/views/dashboard/dataError'),
-    meta: { title: '院长大屏', icon: 'el-icon-s-order' }
-  },
+  // {
+  //   path: '/dashboard1',
+  //   name: 'dashboard1',
+  //   component: () => import('@/views/dashboard/dashboard1'),
+  //   meta: { title: '机构大屏', icon: 'el-icon-s-order' }
+  // },
+  // {
+  //   path: '/dashboard2',
+  //   name: 'dashboard2',
+  //   component: () => import('@/views/dashboard/dashboard2'),
+  //   meta: { title: '院长大屏', icon: 'el-icon-s-order' }
+  // },
+  // {
+  //   path: '/dataerror',
+  //   name: 'dataerror',
+  //   component: () => import('@/views/dashboard/dataError'),
+  //   meta: { title: '院长大屏', icon: 'el-icon-s-order' }
+  // },
   {
     path: '/patentDetail',
     name: 'patentDetail',
@@ -158,6 +158,13 @@ export const asyncRoutes = [
         hidden: true,
         component: () => import('@/views/cpath/scan3'),
         meta: { title: '第4阶段', icon: 'el-icon-s-ticket' }
+      },
+      {
+        path:"scan",
+        name:'scan',
+        hidden: true,
+        component: () => import('@/views/cpath/stage'),
+        meta: { title: '第几阶段', icon: 'el-icon-s-ticket' }
       }
     ]
   },

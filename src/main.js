@@ -13,6 +13,7 @@ import store from './store'
 import router from './router'
 import 'echarts'
 
+// import {components} from 'vue-load'
 
 import './assets/font/iconfont.css'
 import '@/icons' // icon
@@ -20,7 +21,7 @@ import '@/permission' // permission control
 import 'echarts'
 import VueECharts from 'vue-echarts'
 Vue.component('v-chart', VueECharts)
-
+// Vue.use(components.YsLoad5)
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api

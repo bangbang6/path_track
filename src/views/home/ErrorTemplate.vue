@@ -19,25 +19,41 @@
             <div class="title">主要诊疗工作</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[0].work1" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[0].work1"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">长期医嘱</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[0].work2" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[0].work2"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">短期医嘱</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in  this.templateData.info[0].work3" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in  this.templateData.info[0].work3"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">主要护理工作</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in  this.templateData.info[0].work4" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in  this.templateData.info[0].work4"
+              :key="item"
+            >{{item.label}}</div>
           </div>
         </div>
       </el-collapse-item>
@@ -47,25 +63,41 @@
             <div class="title">主要诊疗工作</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[1].work1" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[1].work1"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">长期医嘱</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[1].work2" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[1].work2"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">短期医嘱</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[1].work3" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[1].work3"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">主要护理工作</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[1].work4" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[1].work4"
+              :key="item"
+            >{{item.label}}</div>
           </div>
         </div>
       </el-collapse-item>
@@ -75,25 +107,41 @@
             <div class="title">主要诊疗工作</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in  this.templateData.info[2].work1" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in  this.templateData.info[2].work1"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">长期医嘱</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[2].work2" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[2].work2"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">短期医嘱</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[2].work3" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[2].work3"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">主要护理工作</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[2].work4" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[2].work4"
+              :key="item"
+            >{{item.label}}</div>
           </div>
         </div>
       </el-collapse-item>
@@ -103,25 +151,41 @@
             <div class="title">主要诊疗工作</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[3].work1" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[3].work1"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">长期医嘱</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[3].work2" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[3].work2"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">短期医嘱</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[3].work3" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[3].work3"
+              :key="item"
+            >{{item.label}}</div>
           </div>
           <div class="mainWork">
             <div class="title">主要护理工作</div>
           </div>
           <div class="items">
-            <div class="item" v-for="item in this.templateData.info[3].work4" :key="item">{{item}}</div>
+            <div
+              class="item"
+              v-for="item in this.templateData.info[3].work4"
+              :key="item"
+            >{{item.label}}</div>
           </div>
         </div>
       </el-collapse-item>
