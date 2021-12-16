@@ -5,7 +5,15 @@
         <el-button type="primary" @click.native.prevent="submit">确认路径</el-button>
         <div>
           <span class="key">实际金额:{{this.factMoney}}</span>
-          <span class="key">预计金额:{{this.templateData.money}}</span>
+          <span class="key">预计金额:{{this.yujiMoney}}</span>
+          <span
+            class="key"
+            :style="{color:'red'}"
+            v-if="(this.templateData.money - this.factMoney) / this.templateData.money <=0.2"
+          >
+            <i class="el-icon-warning"></i>
+            离DRG分组设置的金额{{this.templateData.money}}只有20%差距
+          </span>
         </div>
       </div>
     </el-row>
@@ -22,7 +30,7 @@
             <el-checkbox v-for="item in this.nowInfo.work1" :key="item.label" :label="item.label">
               <check-item :item="item"></check-item>
             </el-checkbox>
-            <div class="icon-wrapper" @click="addItem(0)" v-if="!isErrorStatus">
+            <div class="icon-wrapper" @click="addItem(0)" v-if="isErrorStatus">
               <i class="el-icon-circle-plus-outline"></i>
               <span>新增</span>
             </div>
@@ -41,7 +49,7 @@
             <el-checkbox v-for="item in this.nowInfo.work2" :label="item.label" :key="item.label">
               <check-item :item="item"></check-item>
             </el-checkbox>
-            <div class="icon-wrapper" v-if="!isErrorStatus">
+            <div class="icon-wrapper" v-if="isErrorStatus">
               <i class="el-icon-circle-plus-outline"></i>
               <span @click="addItem(1)">新增</span>
             </div>
@@ -60,7 +68,7 @@
             <el-checkbox v-for="item in this.nowInfo.work3" :label="item.label" :key="item.label">
               <check-item :item="item"></check-item>
             </el-checkbox>
-            <div class="icon-wrapper" v-if="!isErrorStatus">
+            <div class="icon-wrapper" v-if="isErrorStatus">
               <i class="el-icon-circle-plus-outline"></i>
               <span @click="addItem(2)">新增</span>
             </div>
@@ -79,7 +87,7 @@
             <el-checkbox v-for="item in this.nowInfo.work4" :label="item.label" :key="item.label">
               <check-item :item="item"></check-item>
             </el-checkbox>
-            <div class="icon-wrapper" v-if="!isErrorStatus">
+            <div class="icon-wrapper" v-if="isErrorStatus">
               <i class="el-icon-circle-plus-outline"></i>
               <span @click="addItem(3)">新增</span>
             </div>
@@ -126,7 +134,8 @@ export default {
 
       money = moneyArray[this.stateIndex - 1]
       return money
-    }
+    },
+
 
   },
   data () {
@@ -137,6 +146,7 @@ export default {
       itemMessage: "",//新增的输入的内容
       itemMoney: 0,
       calcMoney: "2462",
+      yujiMoney: 2462,
       factMoney: 0,
       checkAll0: false,
       checkAll1: false,
@@ -315,7 +325,7 @@ export default {
     this.$route.meta.title = `第${+index + 1}阶段`
 
     this.factMoney = this.originMoney
-
+    this.yujiMoney = this.factMoney + (6 - this.stateIndex) * 200 + Math.floor(Math.random() * 20)
     this.initData()
     this.calcMap()
     this.calcMoneyAgain() //计算初始的经前值
@@ -325,6 +335,9 @@ export default {
     stateIndex (newVal, oldVal) {
       console.log('newVal', newVal);
       this.nowInfo = deepClone(this.$store.state.template.template.info[newVal])
+    },
+    factMoney (newVal, oldVal) {
+      this.yujiMoney = newVal + (6 - this.stateIndex) * 200 + Math.floor(Math.random() * 20)
     }
   }
 }
