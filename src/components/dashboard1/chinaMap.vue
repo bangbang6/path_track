@@ -10,11 +10,12 @@
     <div class="main">
       <div class="list">
         <div class="item">
-          <div class="white rank" style="font-size: 16px">排名</div>
-          <div class="white name" style="font-size: 16px">医院名称</div>
-          <div class="white frame" style="font-size: 16px">专科声誉</div>
-          <div class="white science" style="font-size: 16px">科研学术</div>
-          <div class="white score" style="font-size: 16px">综合得分</div>
+          <div class=" rank white" style="color: white; font-size: 16px">No</div>
+          <div class=" name white" style="color: white;font-size: 16px">医院名称</div>
+          <div class="white quality" style="color: white;font-size: 16px">医疗质量</div>
+          <div class="white efficiency" style="color: white;font-size: 16px">运营效率</div>
+          <div class="white develop" style="color: white;font-size: 16px">持续发展</div>
+          <div class="white satisfy" style="color: white;font-size: 16px">满意度</div>
         </div>
         <div
           class="item"
@@ -24,9 +25,10 @@
         >
           <div class="rank">{{item.rank}}</div>
           <div class="name" @click="hanleClick(item.name)">{{item.name}}</div>
-          <div class="frame">{{item.frame}}</div>
-          <div class="science">{{item.science}}</div>
-          <div class="score">{{item.score}}</div>
+          <div class="quality">{{item.quality}}</div>
+          <div class="efficiency">{{item.efficiency}}</div>
+          <div class="develop">{{item.develop}}</div>
+          <div class="satisfy">{{item.satisfy}}</div>
         </div>
       </div>
       <div class="map">
@@ -48,15 +50,15 @@ export default {
 
       hospitals: [
 
-        { rank: 1, name: "医院A", frame: '80.000', science: '5.826', score: '95.826' },
-        { rank: 2, name: "医院B", frame: '64.326', science: '20.000', score: '84.326' },
-        { rank: 3, name: "医院C", frame: 60.182, science: 15.249, score: 75.431 },
-        { rank: 4, name: "医院D", frame: 30.734, science: 11.363, score: 42.097 },
-        { rank: 5, name: "医院E", frame: 29.678, science: 12.374, score: 42.052 },
-        { rank: 6, name: "医院F", frame: 24.484, science: 12.374, score: 42.052 },
-        { rank: 7, name: "医院G", frame: 23.293, science: 11.755, score: 35.048 },
-        { rank: 8, name: "医院H", frame: 25.893, science: 7.478, score: 33.371 },
-        { rank: 9, name: "医院I", frame: 23.451, science: 9.654, score: 33.105 },
+        { rank: 1, name: "医院A", quality: 98.23, efficiency: 96.62, develop: 92.01, satisfy: 90.01},
+        { rank: 2, name: "医院B", quality: 95.38, efficiency: 98.06, develop: 92.20,satisfy: 88.18 },
+        { rank: 3, name: "医院C", quality: 90.63, efficiency: 87.56, develop: 87.73, satisfy: 86.83 },
+        { rank: 4, name: "医院D", quality: 90.12, efficiency: 88.10, develop: 84.12, satisfy: 85.14},
+        { rank: 5, name: "医院E", quality: 85.52, efficiency: 84.06, develop: 80.21, satisfy: 85.01 },
+        { rank: 6, name: "医院F", quality: 86.74, efficiency: 80.62, develop: 78.19, satisfy: 84.98 },
+        { rank: 7, name: "医院G", quality: 84.89, efficiency: 75.52, develop: 76.18, satisfy: 84.62 },
+        { rank: 8, name: "医院H", quality: 80.63, efficiency: 74.71, develop: 73.20, satisfy: 83.98 },
+        { rank: 9, name: "医院I", quality: 80.18, efficiency: 73.93, develop: 72.83, satisfy: 83.91 },
       ]
     }
   },
@@ -123,33 +125,39 @@ export default {
           font-size: 12px;
         }
         .rank {
-          flex: 10%;
-          color: white;
+          flex: 8%;
+          color: rgb(13, 243, 243);
           transform: scale(0.8);
           margin: auto;
         }
         .name {
-          flex: 30%;
+          flex: 20%;
           color: white;
           transform: scale(0.8);
           margin: auto;
         }
-        .frame {
-          color: #71b5ea;
-          flex: 20%;
+        .quality {
+          color: #1591f0;
+          flex: 18%;
           transform: scale(0.8);
           margin: auto;
         }
-        .science {
+        .efficiency {
           color: #facc14;
           transform: scale(0.8);
-          flex: 20%;
+          flex: 18%;
           margin: auto;
         }
-        .score {
-          flex: 20%;
+        .develop {
+          flex: 18%;
           transform: scale(0.8);
-          color: #0bcae8;
+          color: #1591f0;
+          margin: auto;
+        }
+        .satisfy {
+          flex: 18%;
+          transform: scale(0.8);
+          color: #facc14;
           margin: auto;
         }
       }
