@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
-    <el-button type="primary" @click="addpat" >添加患者</el-button>
-<!--    <template>{{ fulltime }}</template>-->
+    <el-button type="primary" @click="addpat">添加患者</el-button>
+    <!--    <template>{{ fulltime }}</template>-->
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="全部患者" name="unfiltered">
         <el-table
@@ -14,12 +14,10 @@
           border
           fit
           highlight-current-row
-          :default-sort = "{prop: 'bed', order: 'ascending'}"
+          :default-sort="{prop: 'bed', order: 'ascending'}"
         >
           <el-table-column label="ID" width="200" align="center">
-            <template slot-scope="scope">
-              {{ scope.row.id }}
-            </template>
+            <template slot-scope="scope">{{ scope.row.id }}</template>
           </el-table-column>
           <el-table-column label="患者" width="200" prop="patient" align="center">
             <template slot-scope="scope">
@@ -27,34 +25,48 @@
             </template>
           </el-table-column>
           <el-table-column label="床位" width="200" sortable prop="bed" align="center">
-            <template slot-scope="scope">
-              {{ scope.row.bed }}
-            </template>
+            <template slot-scope="scope">{{ scope.row.bed }}</template>
           </el-table-column>
-          <el-table-column class-name="status-col" label="状态" prop="status" width="300" align="center">
-            <template slot-scope="scope">
-              <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
-            </template>
-          </el-table-column>
-<!--          <el-table-column label="入院时间" width="200" sortable prop="date" align="center">-->
-<!--            <template slot-scope="scope">-->
-<!--              {{ scope.row.date + "  " + scope.row.time }}-->
-<!--            </template>-->
-<!--          </el-table-column>-->
           <el-table-column
+            class-name="status-col"
+            label="状态"
+            prop="status"
+            width="300"
             align="center"
-            fixed="right"
-            label="操作"
-            width="300">
-            <template slot="header" slot-scope="scope" >
-              <el-input
-                v-model="search"
-                size="mini"
-                placeholder="搜索信息"/>
+          >
+            <template slot-scope="scope">
+              <el-tag
+                :type="scope.row.status | statusFilter"
+              >{{ scope.row.status=='变异'?'执行中':scope.row.status }}</el-tag>
+              <el-tag
+                type="danger"
+                v-if="scope.row.status=='变异'"
+                :style="{marginLeft:'10px'}"
+              >{{ scope.row.status }}</el-tag>
+            </template>
+          </el-table-column>
+          <!--          <el-table-column label="入院时间" width="200" sortable prop="date" align="center">-->
+          <!--            <template slot-scope="scope">-->
+          <!--              {{ scope.row.date + "  " + scope.row.time }}-->
+          <!--            </template>-->
+          <!--          </el-table-column>-->
+          <el-table-column align="center" fixed="right" label="操作" width="300">
+            <template slot="header" slot-scope="scope">
+              <el-input v-model="search" size="mini" placeholder="搜索信息" />
             </template>
             <template slot-scope="scope">
-              <el-button v-if=" scope.row.status !== '未加入' " type="success" size="small" @click="edit(scope.row)" >查看详情</el-button>
-              <el-button v-if=" scope.row.status === '未加入' " type="warning" size="small" @click="diagn(scope.row)" >加入路径</el-button>
+              <el-button
+                v-if=" scope.row.status !== '未加入' "
+                type="success"
+                size="small"
+                @click="edit(scope.row)"
+              >查看详情</el-button>
+              <el-button
+                v-if=" scope.row.status === '未加入' "
+                type="warning"
+                size="small"
+                @click="diagn(scope.row)"
+              >加入路径</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -70,12 +82,10 @@
           border
           fit
           highlight-current-row
-          :default-sort = "{prop: 'date', order: 'descending'}"
+          :default-sort="{prop: 'date', order: 'descending'}"
         >
           <el-table-column label="ID" width="200" align="center">
-            <template slot-scope="scope">
-              {{ scope.row.id }}
-            </template>
+            <template slot-scope="scope">{{ scope.row.id }}</template>
           </el-table-column>
           <el-table-column label="患者" width="200" prop="patient" align="center">
             <template slot-scope="scope">
@@ -83,37 +93,54 @@
             </template>
           </el-table-column>
           <el-table-column label="床位" width="200" sortable prop="bed" align="center">
-            <template slot-scope="scope">
-              {{ scope.row.bed }}
-            </template>
+            <template slot-scope="scope">{{ scope.row.bed }}</template>
           </el-table-column>
-          <el-table-column class-name="status-col" label="状态" prop="status" width="300" align="center">
+          <el-table-column
+            class-name="status-col"
+            label="状态"
+            prop="status"
+            width="300"
+            align="center"
+          >
             <template slot-scope="scope">
-              <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
+              <el-tag
+                :type="scope.row.status | statusFilter"
+              >{{ scope.row.status=='变异'?'执行中':scope.row.status }}</el-tag>
+              <el-tag
+                type="danger"
+                v-if="scope.row.status=='变异'"
+                :style="{marginLeft:'10px'}"
+              >{{ scope.row.status }}</el-tag>
             </template>
           </el-table-column>
           <el-table-column label="入院时间" width="200" sortable prop="date" align="center">
-            <template slot-scope="scope">
-              {{ scope.row.date + "  " + scope.row.time }}
-            </template>
+            <template slot-scope="scope">{{ scope.row.date + " " + scope.row.time }}</template>
           </el-table-column>
-          <el-table-column
-            align="center"
-            fixed="right"
-            label="操作"
-            width="300">
-            <template slot="header" slot-scope="scope" >
-              <el-input
-                v-model="search"
-                size="mini"
-                placeholder="搜索信息"/>
+          <el-table-column align="center" fixed="right" label="操作" width="300">
+            <template slot="header" slot-scope="scope">
+              <el-input v-model="search" size="mini" placeholder="搜索信息" />
             </template>
             <template slot-scope="scope">
-              <el-button v-if=" scope.row.status === '变异' " type="warning" size="small" @click="dialog1 = true; ground2(scope.row)" >变异原因</el-button>
-<!--              <el-button v-if=" scope.row.status === '变异' " type="warning" size="small" @click="ground1(scope.row)" >变异原因</el-button>-->
-<!--              <el-button v-if=" scope.row.status === '执行中' " type="warning" size="small" @click="evaluate1(scope.row)" >评估</el-button>-->
-              <el-button v-if=" scope.row.status === '执行中' " type="warning" size="small" @click="dialog2 = true; evaluate2(scope.row)" >评估</el-button>
-              <el-button v-if=" scope.row.status !== '未加入' " type="success" size="small" @click="edit(scope.row)" >查看详情</el-button>
+              <el-button
+                v-if=" scope.row.status === '变异' "
+                type="warning"
+                size="small"
+                @click="dialog1 = true; ground2(scope.row)"
+              >变异原因</el-button>
+              <!--              <el-button v-if=" scope.row.status === '变异' " type="warning" size="small" @click="ground1(scope.row)" >变异原因</el-button>-->
+              <!--              <el-button v-if=" scope.row.status === '执行中' " type="warning" size="small" @click="evaluate1(scope.row)" >评估</el-button>-->
+              <el-button
+                v-if=" scope.row.status === '执行中'|| scope.row.status === '变异' "
+                type="warning"
+                size="small"
+                @click="dialog2 = true; evaluate2(scope.row)"
+              >评估</el-button>
+              <el-button
+                v-if=" scope.row.status !== '未加入' "
+                type="success"
+                size="small"
+                @click="edit(scope.row)"
+              >查看详情</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -122,18 +149,14 @@
     <el-dialog title="变异原因" :visible.sync="dialog1">
       <el-form v-if="ground !== ''" label-width="90px">
         <el-form-item label="变异原因">
-          <el-input
-            type="textarea"
-            autosize
-            v-model="ground">
-          </el-input>
+          <el-input type="textarea" autosize v-model="ground"></el-input>
         </el-form-item>
       </el-form>
     </el-dialog>
-    <el-dialog title="评估" :visible.sync="dialog2">
+    <el-dialog title="评估" :visible.sync="dialog2" width="90%">
       <el-form label-width="90px">
         <el-form-item label="阶段">
-          <el-tag :type="success">{{ stage | statusFilter2}}</el-tag>
+          <el-tag type="success">{{ stage | statusFilter2}}</el-tag>
         </el-form-item>
         <el-form-item label="时间进度">
           <el-radio-group v-model="sub.proce">
@@ -144,15 +167,36 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item v-if="sub.proce === 2" label="变异原因">
-          <el-input
-            type="textarea"
-            autosize
-            placeholder="请输入变异原因"
-            v-model="sub.ground">
-          </el-input>
+          <div class="btn-wrapper" :style="{display:'flex'}">
+            <el-input type="textarea" autosize placeholder="请输入变异原因" v-model="sub.ground"></el-input>
+            <el-button
+              type="primary"
+              size="mini"
+              :style="{marginLeft:'10px'}"
+              @click="showTemplate"
+            >搜索</el-button>
+          </div>
         </el-form-item>
+
+        <el-form-item v-if="sub.proce === 2 && errorTemplateStatus" label="变异模板">
+          <div
+            v-loading="loading"
+            element-loading-text="智能AI为你推荐最佳模板"
+            element-loading-spinner="el-icon-loading"
+            element-loading-background="rgba(0, 0, 0, 0.8)"
+          ></div>
+          <div class="wrapper" :style="{border:'1px solid black'}" v-if="!loading">
+            <error-template :index="templateIndex" :templateData="templateData" @next="nextStep" />
+          </div>
+        </el-form-item>
+
         <el-form-item>
-          <el-button type="primary" @click.native.prevent="submit2(); dialog2 = false">完成</el-button>
+          <el-button
+            type="primary"
+            @click.native.prevent="applyTemplate"
+            v-if="sub.proce === 2"
+          >应用该模板</el-button>
+          <el-button type="primary" @click.native.prevent="submit2(); dialog2 = false" v-else>完成</el-button>
         </el-form-item>
       </el-form>
     </el-dialog>
@@ -161,19 +205,23 @@
 
 <script>
 import { getList, getList2, getOut, getProcess } from '@/api/table'
-import {addtoPath, eValuate} from '@/api/record'
+import { addtoPath, eValuate } from '@/api/record'
+import ErrorTemplate from './ErrorTemplate'
+import { errorTemplateData } from '../mock.js'
 export default {
+  components: { ErrorTemplate },
   filters: {
-    statusFilter(status) {
+    statusFilter (status) {
       const statusMap = {
         '正常结束': 'success',
         '执行中': 'primary',
-        '变异': 'danger',
-        '未加入': 'warning'
+        '未加入': 'warning',
+        '变异': "primary"
       }
       return statusMap[status]
     },
-    statusFilter2(status) {
+
+    statusFilter2 (status) {
       const statusMap = {
         '0': '阶段1',
         '1': '阶段2',
@@ -183,11 +231,16 @@ export default {
       return statusMap[status]
     }
   },
-  data() {
+  data () {
     return {
+      loading: false,
+      errorTemplateWorks: [],
+      templateIndex: 0,
+      errorTemplateStatus: false,
       list: null,
       list2: null,
       listLoading: true,
+      templateStatus: false,
       search: '',
       activeName: 'filtered',
       atpitem: {
@@ -243,7 +296,8 @@ export default {
           city3: [
             '介绍病房环境、设施和设备',
             '入院护理评估',
-            '宣教'] }
+            '宣教']
+        }
       },
       date: null,
       time: null,
@@ -263,7 +317,12 @@ export default {
       temid: null
     }
   },
-  mounted() {
+  computed: {
+    templateData () {
+      return this.errorTemplateWorks[this.templateIndex]
+    }
+  },
+  mounted () {
     this.timer = setInterval(() => {
       this.fulltime = new Date()
       var d = new Date()
@@ -279,18 +338,41 @@ export default {
       this.sub.date = year + '-' + month + '-' + day
       this.sub.time = hour + ':' + minute + ':' + second
     }, 1000)
+    this.errorTemplateWorks = errorTemplateData
+
+
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.timer) {
       clearInterval(this.timer)
     }
   },
-  created() {
+  created () {
     this.fetchData()
     this.fetchData2()
   },
   methods: {
-    fetchData() {
+    applyTemplate () {
+      this.$store.commit('template/changeTemplate', this.templateData)
+      this.$store.commit('template/changeErrorStatus')
+      this.dialog2 = false
+
+
+    },
+    nextStep () {
+      this.templateIndex = (this.templateIndex + 1) % 3
+    },
+    showTemplate () {
+
+      this.errorTemplateStatus = true
+      this.loading = true
+      setInterval(() => {
+        this.loading = false
+
+      }, 5000)
+
+    },
+    fetchData () {
       this.listLoading = true
       getList().then(response => {
         this.list = response.data
@@ -300,17 +382,17 @@ export default {
         this.activeName = 'unfiltered'
       }
     },
-    fetchData2() {
+    fetchData2 () {
       this.listLoading = true
       getList2().then(response => {
         this.list2 = response.data
         this.listLoading = false
       })
     },
-    handleClick(tab, event) {
+    handleClick (tab, event) {
       console.log(tab, event)
     },
-    edit(row) {
+    edit (row) {
       this.$router.push({
         path: '/Path/Overall',
         query: {
@@ -318,7 +400,7 @@ export default {
         }
       })
     },
-    evaluate1(row) {
+    evaluate1 (row) {
       this.$router.push({
         path: '/Evaluate/Index',
         query: {
@@ -326,13 +408,13 @@ export default {
         }
       })
     },
-    evaluate2(row) {
+    evaluate2 (row) {
       getProcess({ id: row.id }).then(response => {
         this.stage = response.data.process
         this.temid = row.id
       })
     },
-    ground1(row) {
+    ground1 (row) {
       this.$router.push({
         path: '/Evaluate/Ground',
         query: {
@@ -340,12 +422,12 @@ export default {
         }
       })
     },
-    ground2(row) {
+    ground2 (row) {
       getOut({ id: row.id }).then(response => {
         this.ground = response.data.ground
       })
     },
-    submit2() {
+    submit2 () {
       this.sub.stage = this.stage
       this.sub.id = this.temid
       eValuate(this.sub).then(() => {
@@ -357,7 +439,7 @@ export default {
         })
       })
     },
-    diagn(row) {
+    diagn (row) {
       this.atpitem.id = row.id
       this.atpitem.date = this.date
       this.atpitem.time = this.time
@@ -370,7 +452,7 @@ export default {
         })
       })
     },
-    addpat() {
+    addpat () {
       this.$router.push({
         path: '/AddPatient'
       })
@@ -378,3 +460,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.btn-wrapper {
+  width: 100%;
+  display: flex;
+}
+</style>

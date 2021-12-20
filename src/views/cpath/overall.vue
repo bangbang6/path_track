@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <!--    <template>{{ fulltime }}</template>-->
-    <el-table
+    <!-- <el-table
       v-loading="listLoading"
       :data="list.filter(data => !search || data.stage.toLowerCase().includes(search.toLowerCase()))"
       element-loading-text="Loading"
@@ -42,7 +42,7 @@
           >编辑</el-button>
         </template>
       </el-table-column>
-    </el-table>
+    </el-table>-->
     <el-dialog title="诊疗单" :visible.sync="dialog1">
       <template v-if="printnum === 0">
         <!--        <div class="text-wrapper">{{ "第1阶段诊疗单" }}</div>-->

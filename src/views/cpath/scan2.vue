@@ -1,76 +1,153 @@
 <template>
   <div class="app-container">
     <el-row>
-      <el-button type="primary" @click.native.prevent="submit">确认路径</el-button>
-      <div style="margin: 15px 0;"></div>
+      <div class="wrapper">
+        <el-button type="primary" @click.native.prevent="submit">确认路径</el-button>
+        <div>
+          <span class="key">实际金额:{{this.factMoney}}</span>
+          <span class="key">预计金额:{{this.calcMoney}}</span>
+        </div>
+      </div>
     </el-row>
     <el-collapse v-model="activeNames" @change="handleChange">
       <el-collapse-item title="主要诊疗工作" name="1">
         <template>
-          <el-checkbox :indeterminate="isIndeterminate0" v-model="checkAll0" @change="handleCheckAllChange0">全选</el-checkbox>
+          <el-checkbox
+            :indeterminate="isIndeterminate0"
+            v-model="checkAll0"
+            @change="handleCheckAllChange0"
+          >全选</el-checkbox>
           <div style="margin: 15px 0;"></div>
           <el-checkbox-group v-model="checkedCities.city0" @change="handleCheckedCitiesChange0">
-            <el-checkbox v-for="city0 in cities.city0" :label="city0" :key="city0">{{ city0 }}
-            </el-checkbox>
+            <el-checkbox v-for="city0 in cities.city0" :label="city0" :key="city0">{{ city0 }}</el-checkbox>
+            <div class="icon-wrapper" @click="addItem(0)" v-if="isErrorStatus">
+              <i class="el-icon-circle-plus-outline"></i>
+              <span>新增</span>
+            </div>
           </el-checkbox-group>
         </template>
       </el-collapse-item>
       <el-collapse-item title="长期医嘱" name="2">
         <template>
-          <el-checkbox :indeterminate="isIndeterminate1" v-model="checkAll1" @change="handleCheckAllChange1">全选</el-checkbox>
+          <el-checkbox
+            :indeterminate="isIndeterminate1"
+            v-model="checkAll1"
+            @change="handleCheckAllChange1"
+          >全选</el-checkbox>
           <div style="margin: 15px 0;"></div>
           <el-checkbox-group v-model="checkedCities.city1" @change="handleCheckedCitiesChange1">
-            <el-checkbox v-for="city1 in cities.city1" :label="city1" :key="city1">{{ city1 }}
-              <el-button @click="drawer1 = true" v-if="city1 === '其他医嘱'" type="text" style="margin-left: 16px;">填写</el-button>
-              <el-button @click="drawer2 = true" v-if="city1.indexOf('苯丁酸氮芥') !== -1" type="text" style="margin-left: 16px;">剂量</el-button>
-              <el-button @click="drawer3 = true" v-if="city1.indexOf('利妥昔单抗') !== -1" type="text" style="margin-left: 16px;">剂量</el-button>
-              <el-button @click="drawer4 = true" v-if="city1.indexOf('氟达拉滨') !== -1" type="text" style="margin-left: 16px;">剂量</el-button>
-              <el-button @click="drawer5 = true" v-if="city1.indexOf('环磷酰胺') !== -1" type="text" style="margin-left: 16px;">剂量</el-button>
-              <el-button @click="drawer6 = true" v-if="city1.indexOf('甲泼尼龙') !== -1" type="text" style="margin-left: 16px;">剂量</el-button>
+            <el-checkbox v-for="city1 in cities.city1" :label="city1" :key="city1">
+              {{ city1 }}
+              <el-button
+                @click="drawer1 = true"
+                v-if="city1 === '其他医嘱'"
+                type="text"
+                style="margin-left: 16px;"
+              >填写</el-button>
+              <el-button
+                @click="drawer2 = true"
+                v-if="city1.indexOf('苯丁酸氮芥') !== -1"
+                type="text"
+                style="margin-left: 16px;"
+              >剂量</el-button>
+              <el-button
+                @click="drawer3 = true"
+                v-if="city1.indexOf('利妥昔单抗') !== -1"
+                type="text"
+                style="margin-left: 16px;"
+              >剂量</el-button>
+              <el-button
+                @click="drawer4 = true"
+                v-if="city1.indexOf('氟达拉滨') !== -1"
+                type="text"
+                style="margin-left: 16px;"
+              >剂量</el-button>
+              <el-button
+                @click="drawer5 = true"
+                v-if="city1.indexOf('环磷酰胺') !== -1"
+                type="text"
+                style="margin-left: 16px;"
+              >剂量</el-button>
+              <el-button
+                @click="drawer6 = true"
+                v-if="city1.indexOf('甲泼尼龙') !== -1"
+                type="text"
+                style="margin-left: 16px;"
+              >剂量</el-button>
             </el-checkbox>
+            <div class="icon-wrapper" v-if="isErrorStatus">
+              <i class="el-icon-circle-plus-outline"></i>
+              <span @click="addItem(1)">新增</span>
+            </div>
           </el-checkbox-group>
         </template>
       </el-collapse-item>
       <el-collapse-item title="临时医嘱" name="3">
         <template>
-          <el-checkbox :indeterminate="isIndeterminate2" v-model="checkAll2" @change="handleCheckAllChange2">全选</el-checkbox>
+          <el-checkbox
+            :indeterminate="isIndeterminate2"
+            v-model="checkAll2"
+            @change="handleCheckAllChange2"
+          >全选</el-checkbox>
           <div style="margin: 15px 0;"></div>
           <el-checkbox-group v-model="checkedCities.city2" @change="handleCheckedCitiesChange2">
-            <el-checkbox v-for="city2 in cities.city2" :label="city2" :key="city2">{{ city2 }}
-              <el-button @click="drawer0 = true" v-if="city2.indexOf('其他医嘱') !== -1" type="text" style="margin-left: 16px;">填写</el-button>
+            <el-checkbox v-for="city2 in cities.city2" :label="city2" :key="city2">
+              {{ city2 }}
+              <el-button
+                @click="drawer0 = true"
+                v-if="city2.indexOf('其他医嘱') !== -1"
+                type="text"
+                style="margin-left: 16px;"
+              >填写</el-button>
             </el-checkbox>
+            <div class="icon-wrapper" v-if="isErrorStatus">
+              <i class="el-icon-circle-plus-outline"></i>
+              <span @click="addItem(2)">新增</span>
+            </div>
           </el-checkbox-group>
         </template>
       </el-collapse-item>
       <el-collapse-item title="主要护理工作" name="4">
         <template>
-          <el-checkbox :indeterminate="isIndeterminate3" v-model="checkAll3" @change="handleCheckAllChange3">全选</el-checkbox>
+          <el-checkbox
+            :indeterminate="isIndeterminate3"
+            v-model="checkAll3"
+            @change="handleCheckAllChange3"
+          >全选</el-checkbox>
           <div style="margin: 15px 0;"></div>
           <el-checkbox-group v-model="checkedCities.city3" @change="handleCheckedCitiesChange3">
             <el-checkbox v-for="city3 in cities.city3" :label="city3" :key="city3">{{ city3 }}</el-checkbox>
+            <div class="icon-wrapper" v-if="isErrorStatus">
+              <i class="el-icon-circle-plus-outline"></i>
+              <span @click="addItem(3)">新增</span>
+            </div>
           </el-checkbox-group>
         </template>
       </el-collapse-item>
     </el-collapse>
-    <el-drawer
-      title="其他医嘱"
-      :visible.sync="drawer0"
-      :direction="rtl"
-      :before-close="handleClose">
+    <el-drawer title="其他医嘱" :visible.sync="drawer0" :direction="rtl" :before-close="handleClose">
       <el-form label-width="20px">
-        <el-form-item label="">
-          <el-input v-model="detailCities.city2.input0" placeholder="请输入医嘱内容" type="textarea" autosize style="width: 96%;"></el-input>
+        <el-form-item label>
+          <el-input
+            v-model="detailCities.city2.input0"
+            placeholder="请输入医嘱内容"
+            type="textarea"
+            autosize
+            style="width: 96%;"
+          ></el-input>
         </el-form-item>
       </el-form>
     </el-drawer>
-    <el-drawer
-      title="其他医嘱"
-      :visible.sync="drawer1"
-      :direction="rtl"
-      :before-close="handleClose">
+    <el-drawer title="其他医嘱" :visible.sync="drawer1" :direction="rtl" :before-close="handleClose">
       <el-form label-width="20px">
-        <el-form-item label="">
-          <el-input v-model="detailCities.city1.input0" placeholder="请输入医嘱内容" type="textarea" autosize style="width: 96%;"></el-input>
+        <el-form-item label>
+          <el-input
+            v-model="detailCities.city1.input0"
+            placeholder="请输入医嘱内容"
+            type="textarea"
+            autosize
+            style="width: 96%;"
+          ></el-input>
         </el-form-item>
       </el-form>
     </el-drawer>
@@ -78,67 +155,92 @@
       title="苯丁酸氮芥10mg/(m^2*d)"
       :visible.sync="drawer2"
       :direction="rtl"
-      :before-close="handleClose">
+      :before-close="handleClose"
+    >
       <el-form label-width="20px">
-        <el-form-item label="">
+        <el-form-item label>
           <template>
-            <el-input-number v-model="detailCities.city1.input1" :min="1" :max="7" placeholder="1" label="描述文字"></el-input-number>
+            <el-input-number
+              v-model="detailCities.city1.input1"
+              :min="1"
+              :max="7"
+              placeholder="1"
+              label="描述文字"
+            ></el-input-number>
             <span>天数</span>
           </template>
         </el-form-item>
       </el-form>
     </el-drawer>
-    <el-drawer
-      title="利妥昔单抗"
-      :visible.sync="drawer3"
-      :direction="rtl"
-      :before-close="handleClose">
+    <el-drawer title="利妥昔单抗" :visible.sync="drawer3" :direction="rtl" :before-close="handleClose">
       <el-form label-width="20px">
-        <el-form-item label="">
+        <el-form-item label>
           <template>
-            <el-input-number v-model="detailCities.city1.input2" :min="375" :max="500" placeholder="375" label="描述文字"></el-input-number>
-            <span>mg/m2，  1天</span>
+            <el-input-number
+              v-model="detailCities.city1.input2"
+              :min="375"
+              :max="500"
+              placeholder="375"
+              label="描述文字"
+            ></el-input-number>
+            <span>mg/m2， 1天</span>
           </template>
         </el-form-item>
       </el-form>
     </el-drawer>
-    <el-drawer
-      title="氟达拉滨"
-      :visible.sync="drawer4"
-      :direction="rtl"
-      :before-close="handleClose">
+    <el-drawer title="氟达拉滨" :visible.sync="drawer4" :direction="rtl" :before-close="handleClose">
       <el-form label-width="20px">
-        <el-form-item label="">
+        <el-form-item label>
           <el-row>
-            <el-input-number v-model="detailCities.city1.input3" :min="375" :max="500" placeholder="375" label="描述文字"></el-input-number>
+            <el-input-number
+              v-model="detailCities.city1.input3"
+              :min="375"
+              :max="500"
+              placeholder="375"
+              label="描述文字"
+            ></el-input-number>
             <span>mg/(m^2*d)</span>
           </el-row>
           <el-row>
             <div style="margin: 15px 0;"></div>
           </el-row>
           <el-row>
-            <el-input-number v-model="detailCities.city1.input4" :min="1" :max="5" placeholder="1" label="描述文字"></el-input-number>
+            <el-input-number
+              v-model="detailCities.city1.input4"
+              :min="1"
+              :max="5"
+              placeholder="1"
+              label="描述文字"
+            ></el-input-number>
             <span>天</span>
           </el-row>
         </el-form-item>
       </el-form>
     </el-drawer>
-    <el-drawer
-      title="环磷酰胺"
-      :visible.sync="drawer5"
-      :direction="rtl"
-      :before-close="handleClose">
+    <el-drawer title="环磷酰胺" :visible.sync="drawer5" :direction="rtl" :before-close="handleClose">
       <el-form label-width="20px">
-        <el-form-item label="">
+        <el-form-item label>
           <el-row>
-            <el-input-number v-model="detailCities.city1.input5" :min="20" :max="25" placeholder="20" label="描述文字"></el-input-number>
+            <el-input-number
+              v-model="detailCities.city1.input5"
+              :min="20"
+              :max="25"
+              placeholder="20"
+              label="描述文字"
+            ></el-input-number>
             <span>mg/(m^2*d)</span>
           </el-row>
           <el-row>
             <div style="margin: 15px 0;"></div>
           </el-row>
           <el-row>
-            <el-input-number v-model="detailCities.city1.input6" :min="1" :max="3" placeholder="1" label="描述文字"></el-input-number>
+            <el-input-number
+              v-model="detailCities.city1.input6"
+              :min="1"
+              :max="3"
+              placeholder="1"
+              label="描述文字"
+            ></el-input-number>
             <span>天数</span>
           </el-row>
         </el-form-item>
@@ -148,13 +250,33 @@
       title="甲泼尼龙1g/(m^2*d)"
       :visible.sync="drawer6"
       :direction="rtl"
-      :before-close="handleClose">
+      :before-close="handleClose"
+    >
       <el-form label-width="20px">
-        <el-form-item label="">
+        <el-form-item label>
           <template>
-            <el-input-number v-model="detailCities.city1.input7" :min="1" :max="5" placeholder="1" label="描述文字"></el-input-number>
+            <el-input-number
+              v-model="detailCities.city1.input7"
+              :min="1"
+              :max="5"
+              placeholder="1"
+              label="描述文字"
+            ></el-input-number>
             <span>天数</span>
           </template>
+        </el-form-item>
+      </el-form>
+    </el-drawer>
+    <el-drawer title="新增选项" :visible.sync="dialogItem" :direction="rtl">
+      <el-form label-width="90px">
+        <el-form-item label="内容">
+          <el-input autosize v-model="itemMessage" placeholder="选项内容"></el-input>
+        </el-form-item>
+        <el-form-item label="金额">
+          <el-input autosize v-model="itemMoney" placeholder="0"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" size="mini" @click="addItemMessage">确定</el-button>
         </el-form-item>
       </el-form>
     </el-drawer>
@@ -167,8 +289,19 @@ import { getScan } from '@/api/table'
 import { pathSubmit } from '@/api/record'
 
 export default {
-  data() {
+  computed: {
+    isErrorStatus () {
+      return this.$store.state.template.errorStatus
+    }
+  },
+  data () {
     return {
+      addIndex: 0,//哪个工作的checkbox发生啦新增
+      dialogItem: false,//控制弹窗
+      itemMessage: "",//新增的输入的内容
+      itemMoney: 0,
+      calcMoney: "2462",
+      factMoney: 1428,
       checkAll0: false,
       checkAll1: false,
       checkAll2: false,
@@ -198,6 +331,7 @@ export default {
       },
       cities: {
         city0: [
+
           '上级医师查房',
           '根据体检、各项检查结果和既往资料，进行鉴别诊断和确定诊断',
           '根据其他检查结果判断是否合并其他疾病',
@@ -228,7 +362,8 @@ export default {
           '观察患者病情变化',
           '心理与生活护理',
           '化疗期间嘱患者多饮水'
-        ] },
+        ]
+      },
       isIndeterminate0: true,
       isIndeterminate1: true,
       isIndeterminate2: true,
@@ -251,7 +386,7 @@ export default {
       }
     }
   },
-  created() {
+  created () {
     if (!this.$route.query.id && !this.$route.query.where) {
       this.$alert('请先在路径总览进行操作！', '提示', {
         confirmButtonText: '前往路径总览',
@@ -266,43 +401,51 @@ export default {
     }
   },
   methods: {
-    handleCheckAllChange0(val) {
+    addItemMessage () {
+      this.cities[`city${this.addIndex}`].push(this.itemMessage)
+      this.dialogItem = false
+    },
+    addItem (index) {
+      this.dialogItem = true
+      this.addIndex = index
+    },
+    handleCheckAllChange0 (val) {
       this.checkedCities.chkcts0 = val ? this.cities.city0 : []
       this.isIndeterminate0 = false
     },
-    handleCheckAllChange1(val) {
+    handleCheckAllChange1 (val) {
       this.checkedCities.chkcts1 = val ? this.cities.city1 : []
       this.isIndeterminate1 = false
     },
-    handleCheckAllChange2(val) {
+    handleCheckAllChange2 (val) {
       this.checkedCities.chkcts2 = val ? this.cities.city2 : []
       this.isIndeterminate2 = false
     },
-    handleCheckAllChange3(val) {
+    handleCheckAllChange3 (val) {
       this.checkedCities.chkcts3 = val ? this.cities.city3 : []
       this.isIndeterminate = false
     },
-    handleCheckedCitiesChange0(value) {
+    handleCheckedCitiesChange0 (value) {
       let checkedCount = value.length
       this.checkAll0 = checkedCount === this.cities.city0.length
       this.isIndeterminate3 = checkedCount > 0 && checkedCount < this.cities.city0.length
     },
-    handleCheckedCitiesChange1(value) {
+    handleCheckedCitiesChange1 (value) {
       let checkedCount = value.length
       this.checkAll1 = checkedCount === this.cities.city1.length
       this.isIndeterminate3 = checkedCount > 0 && checkedCount < this.cities.city1.length
     },
-    handleCheckedCitiesChange2(value) {
+    handleCheckedCitiesChange2 (value) {
       let checkedCount = value.length
       this.checkAll2 = checkedCount === this.cities.city2.length
       this.isIndeterminate3 = checkedCount > 0 && checkedCount < this.cities.city2.length
     },
-    handleCheckedCitiesChange3(value) {
+    handleCheckedCitiesChange3 (value) {
       let checkedCount = value.length
       this.checkAll3 = checkedCount === this.cities.city3.length
       this.isIndeterminate3 = checkedCount > 0 && checkedCount < this.cities.city3.length
     },
-    fetchData() {
+    fetchData () {
       getScan({ id: this.$route.query.id, where: this.$route.query.where }).then(response => {
         this.checkedCities.city0 = response.data.checkedCities.city0
         this.checkedCities.city1 = response.data.checkedCities.city1
@@ -314,14 +457,14 @@ export default {
         this.detailCities.city3 = response.data.detailCities.city3
       })
     },
-    submit: function() {
+    submit: function () {
       this.permdata.detailCities = this.detailCities
       this.permdata.checkedCities = this.checkedCities
       this.permdata.id = this.$route.query.id
       this.permdata.cities = this.cities
       pathSubmit(this.permdata).then((res) => {
         console.log(res)
-        if(res.code === 20000){
+        if (res.code === 20000) {
           this.$alert('路径提交成功！', '消息', {
             confirmButtonText: '确认',
             callback: action => {
@@ -333,24 +476,56 @@ export default {
               })
             }
           })
-        }else{
-         // console.log(res)
+        } else {
+          // console.log(res)
           this.$alert(res.data.message, '消息', {
             confirmButtonText: '前往确认'
           })
         }
       })
     },
-    handleChange(val) {
+    handleChange (val) {
       console.log(val)
     },
-    handleClose(done) {
+    handleClose (done) {
       this.$confirm('确认？')
         .then(_ => {
           done()
         })
-        .catch(_ => {})
+        .catch(_ => { })
     }
   }
 }
 </script>
+<style lang="scss" scoped>
+.wrapper {
+  display: flex;
+  align-items: center;
+  .key {
+    margin-left: 20px;
+  }
+}
+.icon-wrapper {
+  color: #409eff;
+  width: 80px;
+  height: 20px;
+  display: inline-block;
+  padding-top: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  span {
+    width: 30px;
+    height: 40px;
+    font-size: 14px;
+    margin-left: 4px;
+    float: right;
+  }
+}
+.el-icon-circle-plus-outline {
+  font-size: 24px;
+  margin-left: 20px;
+  margin-top: 0px;
+  color: #409eff;
+  float: left;
+}
+</style>
