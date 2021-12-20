@@ -46,50 +46,63 @@ export default {
   mounted () {
     this.options = {
       series: {
-        type: 'pie',
-        left: '20%',
-        top: 0,
-        data: [{
-          legendname: '昨日:1256',
-          value: 1256,
-          percent: '30%',
-          itemStyle: {
-            color: "#FACC14"
-          },
-          name: `昨日:1256`
-        }, {
-          legendname: '今日:1637',
-          value: 1637,
-          percent: '70%',
-          itemStyle: {
-            color: "#1890FF"
-          },
-          name: `今日:1637`
-        }],
+        type: 'sunburst',
+        radius: [30, '100%'],
+        itemStyle: {
+          borderRadius: 7,
+          borderWidth: 2
+        },
         label: {
-          normal: {
-            show: true,
-            position: 'outter',
-            color: 'white',
-            formatter: function (params) {
-              return params.data.legendname
-            }
-          }
+          //show: true,
+          color:'white',
         },
-        labelLine: {
-          length: 10,
-          length2: 6,
-          smooth: true,
-          lineStyle: {
-            color: 'white'
-          }
+        labelLine:{
+          show:true,
+          showAbove:true,
+          length2:100
         },
-        center: ['35%', '50%'],
-        radius: ['45%', '60%'],
-
-      },
-
-    }
+        data: [{
+            name: '门诊收入',
+            value: 10,
+            itemStyle: {
+              color: '#265989'
+            },
+            children: [{
+              value: 3,
+              name: '医保基金',
+              itemStyle: {
+                color: '#265989'
+              },
+            }, {
+              value: 7,
+              name: '其他',
+              itemStyle: {
+                color: '#265989'
+              },
+            }]
+          }, {
+            name: '住院收入',
+            value:6,
+            itemStyle: {
+              color: '#174277'
+            },
+            children: [{
+              name: '医保基金',
+              value: 4,
+              itemStyle: {
+                color: '#174277'
+              },
+            }, {
+              name: '其他',
+              value: 2,
+              itemStyle: {
+                color: '#174277'
+              },
+            }]
+          }
+        ]
+      }
+    };
     this.options1={
       textStyle: {
         color: "#fff"
