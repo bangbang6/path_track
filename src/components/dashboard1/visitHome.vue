@@ -3,7 +3,7 @@
     <div class="title">
       <span>></span>
       <span class="light" style="margin-right: 5px;color: #237dbf">></span>
-      今日各科室访问人数
+      重要医护人员占比情况
       <span class="light" style="margin-left: 5px;color: #237dbf">&nbsp<</span>
       <span><</span>
     </div>
@@ -73,10 +73,10 @@ export default {
           }
         },
         indicator: [  //配置雷达图指示器，指定雷达图中的多个变量，跟data中value对应
-          { name: '皮肤科', max: 900000 }, { name: '五官科', max: 900000 },
-          { name: '口腔科', max: 900000 }, { name: '外科', max: 900000 },
+          { name: '麻醉', max: 900000 }, { name: '儿科', max: 900000 },
+          { name: '重症', max: 900000 }, { name: '病理', max: 900000 },
           //设置指示器的名称，最大值，标签的颜色
-          { name: '内科', max: 900000 }, { name: '妇科', max: 900000 }]
+          { name: '中药', max: 900000 }, { name: '其他', max: 900000 }]
       }],
 
       backgroundColor: "#093068",

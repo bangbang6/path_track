@@ -3,26 +3,28 @@
     <div class="title">
       <span>></span>
       <span class="light" style="margin-right: 5px;color: #237dbf">></span>
-      各医院综合指标
+      各医院医疗质量重要指标
       <span class="light" style="margin-left: 5px;color: #237dbf">&nbsp<</span>
       <span><</span>
     </div>
     <div class="list">
       <div class="list-title">
-        <div class="department">医院名称</div>
-        <div class="earlyWarningMonthly">医保使用情况</div>
-        <div class="earlyWarningNumberToday">手术数量</div>
-        <div class="timeUpdate">病人数量/人次</div>
-        <div class="dutyDirectorToday">事故数量</div>
-        <div class="numberOfEmployeesToday">热点疾病</div>
+        <div class="name">医院名称</div>
+        <div class="hisSurgery">出院手术占比</div>
+        <div class="hisMinSurgery">出院微创手术占比</div>
+        <div class="hisFourSurgery">出院四级手术比例</div>
+        <div class="complication">手术并发症发生率</div>
+        <div class="singleDis">单病种质量控制指标（平均住院日）</div>
+        <div class="clinicNumber">临床检验项目数</div>
       </div>
       <div class="list-item" v-for="(item,index) in list" :key="index">
-        <div class="department" @click="handleClick(item.department)">{{item.department}}</div>
-        <div class="earlyWarningMonthly overflow">{{item.earlyWarningMonthly}}</div>
-        <div class="earlyWarningNumberToday overflow">{{item.earlyWarningNumberToday}}</div>
-        <div class="timeUpdate overflow">{{item.timeUpdate}}</div>
-        <div class="dutyDirectorToday overflow">{{item.dutyDirectorToday}}</div>
-        <div class="numberOfEmployeesToday overflow">{{item.numberOfEmployeesToday}}</div>
+        <div class="name" @click="handleClick(item.name)">{{item.name}}</div>
+        <div class="hisSurgery overflow">{{item.hisSurgery}}</div>
+        <div class="hisMinSurgery overflow">{{item.hisMinSurgery}}</div>
+        <div class="hisFourSurgery overflow">{{item.hisFourSurgery}}</div>
+        <div class="complication overflow">{{item.complication}}</div>
+        <div class="singleDis overflow">{{item.singleDis}}</div>
+        <div class="clinicNumber overflow">{{item.clinicNumber}}</div>
       </div>
     </div>
   </div>
@@ -35,36 +37,40 @@ export default {
     return {
       list: [
         {
-          'department': '医院B',
-          'earlyWarningMonthly': '498.36万',
-          'earlyWarningNumberToday': '4531',
-          'timeUpdate': '324.88万',
-          'dutyDirectorToday': '213',
-          'numberOfEmployeesToday': '脂肪肝'
+          'name': '医院A',
+          'hisSurgery': '51.276%',
+          'hisMinSurgery': '24.981%',
+          'hisFourSurgery': '12.628%',
+          'complication': '0.871%',
+          'singleDis': '12天',
+          'clinicNumber': '2135'
         },
         {
-          'department': '医院E',
-          'earlyWarningMonthly': '307.89万',
-          'earlyWarningNumberToday': '3548',
-          'timeUpdate': '103.66万',
-          'dutyDirectorToday': '289',
-          'numberOfEmployeesToday': '冠心病'
+          'name': '医院B',
+          'hisSurgery': '63.443%',
+          'hisMinSurgery': '31.742%',
+          'hisFourSurgery': '18.971%',
+          'complication': '2.759%',
+          'singleDis': '15天',
+          'clinicNumber': '2876'
         },
         {
-          'department': '医院A',
-          'earlyWarningMonthly': '569.69万',
-          'earlyWarningNumberToday': '6568',
-          'timeUpdate': '435.27万',
-          'dutyDirectorToday': '302',
-          'numberOfEmployeesToday': '糖尿病'
+          'name': '医院C',
+          'hisSurgery': '57.216%',
+          'hisMinSurgery': '19.428%',
+          'hisFourSurgery': '23.873%',
+          'complication': '1.511%',
+          'singleDis': '7天',
+          'clinicNumber': '3244'
         },
         {
-          'department': '医院C',
-          'earlyWarningMonthly': '432.14万',
-          'earlyWarningNumberToday': '3566',
-          'timeUpdate': '405.36万',
-          'dutyDirectorToday': '302',
-          'numberOfEmployeesToday': '胃病'
+          'name': '医院D',
+          'hisSurgery': '46.218%',
+          'hisMinSurgery': '35.956%',
+          'hisFourSurgery': '8.659%',
+          'complication': '0.784%',
+          'singleDis': '9天',
+          'clinicNumber': '1988'
         },
 
       ]
@@ -126,7 +132,7 @@ export default {
       div {
         flex: 1;
       }
-      .department {
+      .name {
         color: #168ce3;
         //flex: 1;
         // height: 12.5%;
@@ -134,7 +140,7 @@ export default {
         text-align: center;
         font-size: 13px;
       }
-      .earlyWarningMonthly {
+      .hisSurgery {
         color: #168ce3;
         //flex: 1;
         // height: 12.5%;
@@ -142,7 +148,7 @@ export default {
         text-align: center;
         font-size: 13px;
       }
-      .earlyWarningNumberToday {
+      .hisMinSurgery {
         color: #168ce3;
         //flex: 1;
         // height: 12.5%;
@@ -150,7 +156,7 @@ export default {
         text-align: center;
         font-size: 13px;
       }
-      .timeUpdate {
+      .hisFourSurgery {
         color: #168ce3;
         //flex: 1;
         // height: 12.5%;
@@ -159,13 +165,18 @@ export default {
         font-size: 13px;
       }
 
-      .dutyDirectorToday {
+      .complication {
         text-align: center;
         color: #168ce3;
 
         font-size: 13px;
       }
-      .numberOfEmployeesToday {
+      .singleDis {
+        text-align: center;
+        font-size: 13px;
+        color: #168ce3;
+      }
+      .clinicNumber {
         text-align: center;
         font-size: 13px;
         color: #168ce3;
@@ -195,7 +206,7 @@ export default {
       div {
         flex: 1;
       }
-      .department {
+      .name {
         color: #74fbf5;
         //flex: 1;
         // height: 12.5%;
@@ -203,7 +214,7 @@ export default {
         text-align: center;
         font-size: 14px;
       }
-      .earlyWarningMonthly {
+      .hisSurgery {
         color: #74fbf5;
         //flex: 1;
         // height: 12.5%;
@@ -211,7 +222,7 @@ export default {
         text-align: center;
         font-size: 14px;
       }
-      .earlyWarningNumberToday {
+      .hisMinSurgery {
         color: #74fbf5;
         //flex: 1;
         // height: 12.5%;
@@ -219,7 +230,7 @@ export default {
         text-align: center;
         font-size: 14px;
       }
-      .timeUpdate {
+      .hisFourSurgery {
         color: #74fbf5;
         //flex: 1;
         // height: 12.5%;
@@ -228,13 +239,18 @@ export default {
         font-size: 14px;
       }
 
-      .dutyDirectorToday {
+      .complication {
         text-align: center;
         color: #74fbf5;
 
         font-size: 14px;
       }
-      .numberOfEmployeesToday {
+      .singleDis {
+        text-align: center;
+        font-size: 14px;
+        color: #74fbf5;
+      }
+      .clinicNumber {
         text-align: center;
         font-size: 14px;
         color: #74fbf5;

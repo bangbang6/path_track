@@ -3,7 +3,7 @@
     <div class="title">
       <span>></span>
       <span class="light" style="margin-right: 5px;color: #237dbf">></span>
-      近两天总收入占比(百万)
+      收支结构与费用控制(百万)
       <span class="light" style="margin-left: 5px;color: #237dbf">&nbsp<</span>
       <span><</span>
     </div>
@@ -12,19 +12,19 @@
     </div>
     <div class="main">
       <div class="left">
-        <div class="title1">初复诊收入比(百万)</div>
+        <div class="title1">门诊/住院费用涨幅(百万)</div>
         <div class="chart1">
           <v-chart :options="options1"></v-chart>
         </div>
       </div>
       <div class="center">
-        <div class="title1">自费医保收入比(百万)</div>
+        <div class="title1">门诊/住院收入比(百万)</div>
         <div class="chart1">
           <v-chart :options="options2"></v-chart>
         </div>
       </div>
       <div class="right">
-        <div class="title1">住院门诊收录比(百万)</div>
+        <div class="title1">门诊/住院来自医保基金(百万)</div>
         <div class="chart1">
           <v-chart :options="options3"></v-chart>
         </div>
@@ -102,7 +102,7 @@ export default {
       },
       yAxis: {
         type: 'category',
-        data: ['复诊', '初诊'],
+        data: ['住院', '门诊'],
         inverse: true,
         axisLine: {
           lineStyle: {
@@ -166,7 +166,7 @@ export default {
       },
       yAxis: {
         type: 'category',
-        data: ['自费', '医保'],
+        data: ['住院', '门诊'],
         inverse: true,
         axisLine: {
           lineStyle: {
@@ -203,7 +203,7 @@ export default {
             show: true,
             position: 'right'
           },
-          data: [1.4, 2.7],
+          data: [2.6, 2.5],
           type: 'bar'
         }
       ],
@@ -267,7 +267,7 @@ export default {
             show: true,
             position: 'right'
           },
-          data: [5.6, 1.5],
+          data: [5.6, 3.5],
           type: 'bar'
         }
       ],
