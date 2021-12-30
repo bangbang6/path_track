@@ -10,7 +10,8 @@
             ></i>
             <span :style="{marginRight:'8px'}">阶段一</span>
             <span :style="{marginRight:'8px'}">2021-11-05 09:34:49 - 2021-11-05 09:35:56</span>
-            <el-tag type="success" effect="dark" size="mini">已完成</el-tag>
+            <el-tag type="success" effect="dark" size="mini" v-if="this.nowStage>0">已完成</el-tag>
+            <el-tag type="primary" effect="dark" size="mini" v-if="this.nowStage==0">正在进行</el-tag>
             <el-button
               type="primary"
               size="mini"
@@ -42,7 +43,10 @@
             ></i>
             <span :style="{marginRight:'8px'}">阶段二</span>
             <span :style="{marginRight:'8px'}">2021-11-05 09:35:56 - 2021-11-05 09:36:45</span>
-            <el-tag type="success" effect="dark" size="mini">已完成</el-tag>
+            <el-tag type="success" effect="dark" size="mini" v-if="this.nowStage>1">已完成</el-tag>
+            <el-tag type="primary" effect="dark" size="mini" v-if="this.nowStage==1">正在进行</el-tag>
+            <el-tag type="info" effect="dark" size="mini" v-if="this.nowStage<1">未开始</el-tag>
+
             <el-button
               type="primary"
               size="mini"
@@ -71,7 +75,10 @@
             <i class="el-icon-more" :style="{color:'#2CC2F7',fontSize:'20px',marginRight:'8px'}"></i>
             <span :style="{marginRight:'8px'}">阶段三</span>
             <span :style="{marginRight:'8px'}">2021-11-05 09:35:56 - 至今</span>
-            <el-tag type="primary" effect="dark" size="mini">正在进行</el-tag>
+            <el-tag type="success" effect="dark" size="mini" v-if="this.nowStage>2">已完成</el-tag>
+            <el-tag type="primary" effect="dark" size="mini" v-if="this.nowStage==2">正在进行</el-tag>
+            <el-tag type="info" effect="dark" size="mini" v-if="this.nowStage<2">未开始</el-tag>
+
             <el-button
               type="primary"
               size="mini"
@@ -101,7 +108,9 @@
             :style="{color:'rgb(144,147,153)',fontSize:'20px',marginRight:'8px'}"
           ></i>
           <span :style="{marginRight:'8px'}">阶段四</span>
-          <el-tag type="info" effect="dark" size="mini">未开始</el-tag>
+          <el-tag type="success" effect="dark" size="mini" v-if="this.nowStage>3">已完成</el-tag>
+          <el-tag type="primary" effect="dark" size="mini" v-if="this.nowStage==3">正在进行</el-tag>
+          <el-tag type="info" effect="dark" size="mini" v-if="this.nowStage<3">未开始</el-tag>
         </template>
         <el-timeline>
           <el-timeline-item
@@ -122,6 +131,7 @@
 </template>
  
 <script>
+import { getPath } from '@/api/table';
 const moment = require('moment');
 
 export default {
@@ -131,6 +141,7 @@ export default {
   data () {
     return {
       activities: [[], [], [], []],
+      nowStage: 0,
       // activities: [{
       //   content: '主要诊疗工作-完成病历书写   2021-11-12 20:46',
       //   timestamp: '',
@@ -187,7 +198,7 @@ export default {
       //   timestamp: '',
       //   size: 'normal'
       // }],
-      activeNames: ['2'],
+      activeNames: [],
     }
   },
   computed: {
@@ -235,6 +246,19 @@ export default {
       })
     },
     init () {
+      const id = this.$route.query.id || 0
+      getPath({ id: id }).then(res => {
+        console.log('res', res.data);
+
+        for (let i = 0; i < res.data.length; i++) {
+          if (res.data[i].status === '正在进行') {
+            this.nowStage = i
+            this.activeNames = [`${this.nowStage}`]
+            break
+          }
+        }
+
+      })
       const storeageMessageArray = JSON.parse(localStorage.getItem('storeageMessageArray')) || []
       const template = this.$store.state.template.template.info
 

@@ -132,7 +132,7 @@ export default {
       let money = 0
       const moneyArray = JSON.parse(localStorage.getItem('moneyArray')) || [0, 0, 0, 0]
 
-      money = moneyArray[this.stateIndex - 1]
+      money = this.stateIndex - 1 >= 0 ? moneyArray[this.stateIndex - 1] : 0
       return money
     },
 
