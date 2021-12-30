@@ -9,7 +9,11 @@
               :style="{color:'#0bbd87',fontSize:'20px',marginRight:'8px'}"
             ></i>
             <span :style="{marginRight:'8px'}">阶段一</span>
-            <span :style="{marginRight:'8px'}">2021-11-05 09:34:49 - 2021-11-05 09:35:56</span>
+            <span
+              :style="{marginRight:'8px'}"
+              v-if="this.nowStage>0"
+            >2021-11-05 09:34:49 - 2021-11-05 09:35:56</span>
+            <span :style="{marginRight:'8px'}" v-if="this.nowStage==0">2021-11-05 09:34:49 - 至今</span>
             <el-tag type="success" effect="dark" size="mini" v-if="this.nowStage>0">已完成</el-tag>
             <el-tag type="primary" effect="dark" size="mini" v-if="this.nowStage==0">正在进行</el-tag>
             <el-button
@@ -17,6 +21,7 @@
               size="mini"
               :style="{float:'right'}"
               @click.prevent="edit(0)"
+              v-if="this.nowStage>=0"
             >编辑</el-button>
           </div>
         </template>
@@ -42,7 +47,12 @@
               :style="{color:'#0bbd87',fontSize:'20px',marginRight:'8px'}"
             ></i>
             <span :style="{marginRight:'8px'}">阶段二</span>
-            <span :style="{marginRight:'8px'}">2021-11-05 09:35:56 - 2021-11-05 09:36:45</span>
+            <span
+              :style="{marginRight:'8px'}"
+              v-if="this.nowStage>1"
+            >2021-11-05 09:35:56 - 2021-11-05 09:36:45</span>
+            <span :style="{marginRight:'8px'}" v-if="this.nowStage==1">2021-11-05 09:35:56 - 至今</span>
+
             <el-tag type="success" effect="dark" size="mini" v-if="this.nowStage>1">已完成</el-tag>
             <el-tag type="primary" effect="dark" size="mini" v-if="this.nowStage==1">正在进行</el-tag>
             <el-tag type="info" effect="dark" size="mini" v-if="this.nowStage<1">未开始</el-tag>
@@ -52,6 +62,7 @@
               size="mini"
               :style="{float:'right'}"
               @click.prevent="edit(1)"
+              v-if="this.nowStage>=1"
             >编辑</el-button>
           </div>
         </template>
@@ -74,7 +85,11 @@
           <div class="wrapper">
             <i class="el-icon-more" :style="{color:'#2CC2F7',fontSize:'20px',marginRight:'8px'}"></i>
             <span :style="{marginRight:'8px'}">阶段三</span>
-            <span :style="{marginRight:'8px'}">2021-11-05 09:35:56 - 至今</span>
+            <span :style="{marginRight:'8px'}" v-if="this.nowStage==2">2021-11-05 09:35:56 - 至今</span>
+            <span
+              :style="{marginRight:'8px'}"
+              v-if="this.nowStage>2"
+            >2021-11-05 09:35:56 - 2021-11-05 11:34:46</span>
             <el-tag type="success" effect="dark" size="mini" v-if="this.nowStage>2">已完成</el-tag>
             <el-tag type="primary" effect="dark" size="mini" v-if="this.nowStage==2">正在进行</el-tag>
             <el-tag type="info" effect="dark" size="mini" v-if="this.nowStage<2">未开始</el-tag>
@@ -84,6 +99,7 @@
               size="mini"
               :style="{float:'right'}"
               @click.prevent="edit(2)"
+              v-if="this.nowStage>=2"
             >编辑</el-button>
           </div>
         </template>
@@ -103,14 +119,28 @@
       </el-collapse-item>
       <el-collapse-item name="3" :style="styled">
         <template slot="title">
-          <i
-            class="el-icon-edit-outline"
-            :style="{color:'rgb(144,147,153)',fontSize:'20px',marginRight:'8px'}"
-          ></i>
-          <span :style="{marginRight:'8px'}">阶段四</span>
-          <el-tag type="success" effect="dark" size="mini" v-if="this.nowStage>3">已完成</el-tag>
-          <el-tag type="primary" effect="dark" size="mini" v-if="this.nowStage==3">正在进行</el-tag>
-          <el-tag type="info" effect="dark" size="mini" v-if="this.nowStage<3">未开始</el-tag>
+          <div class="wrapper">
+            <i
+              class="el-icon-edit-outline"
+              :style="{color:'rgb(144,147,153)',fontSize:'20px',marginRight:'8px'}"
+            ></i>
+            <span :style="{marginRight:'8px'}">阶段四</span>
+            <span :style="{marginRight:'8px'}" v-if="this.nowStage==3">2021-11-05 14:35:56 - 至今</span>
+            <span
+              :style="{marginRight:'8px'}"
+              v-if="this.nowStage>3"
+            >2021-11-05 14:35:56 - 2021-11-05 14:34:46</span>
+            <el-tag type="success" effect="dark" size="mini" v-if="this.nowStage>3">已完成</el-tag>
+            <el-tag type="primary" effect="dark" size="mini" v-if="this.nowStage==3">正在进行</el-tag>
+            <el-tag type="info" effect="dark" size="mini" v-if="this.nowStage<3">未开始</el-tag>
+            <el-button
+              type="primary"
+              size="mini"
+              :style="{float:'right'}"
+              @click.prevent="edit(3)"
+              v-if="this.nowStage>=3"
+            >编辑</el-button>
+          </div>
         </template>
         <el-timeline>
           <el-timeline-item
