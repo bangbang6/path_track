@@ -155,17 +155,37 @@
     </el-dialog>
     <el-dialog title="评估" :visible.sync="dialog2" width="90%">
       <el-form label-width="90px">
-        <el-form-item label="阶段">
-          <el-tag type="success">{{ stage | statusFilter2}}</el-tag>
-        </el-form-item>
-        <el-form-item label="时间进度">
-          <el-radio-group v-model="sub.proce">
-            <el-radio :label="0">继续本阶段</el-radio>
-            <el-radio v-if="stage !== 3" :label="1">进入下一阶段</el-radio>
-            <el-radio :label="2">变异</el-radio>
-            <el-radio :label="3">完成路径</el-radio>
-          </el-radio-group>
-        </el-form-item>
+        <div class="label-wrapper">
+          <div class="inner">
+            <el-form-item label="阶段">
+              <el-tag type="success">{{ stage | statusFilter2}}</el-tag>
+            </el-form-item>
+
+            <el-form-item label="时间进度">
+              <el-radio-group v-model="sub.proce">
+                <el-radio :label="0">继续本阶段</el-radio>
+                <el-radio v-if="stage !== 3" :label="1">进入下一阶段</el-radio>
+                <el-radio :label="2">变异</el-radio>
+                <el-radio :label="3">完成路径</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </div>
+
+          <div class="recommand" v-if="stage !== 3 &&sub.proce === 1">
+            <el-card shadow="always">
+              <div slot="header" class="clearfix">
+                <span>历史变异</span>
+              </div>
+              <el-card
+                v-for="(item,index) in recommandList"
+                :key="item"
+                class="text item"
+                :style="cardStyle(item,index)"
+              >{{item}}</el-card>
+            </el-card>
+          </div>
+        </div>
+
         <el-form-item v-if="sub.proce === 2" label="变异原因">
           <div class="btn-wrapper" :style="{display:'flex'}">
             <el-input type="textarea" autosize placeholder="请输入变异原因" v-model="sub.ground"></el-input>
@@ -233,6 +253,9 @@ export default {
   },
   data () {
     return {
+      colors: ['#02CDE6', '#f58220', '#1DE9B6', '#ffc20e'],
+
+      recommandList: ['9.73%的类似病例因并发症1变异', '8.57%的类似病例因并发症2变异', '3.41%的类似病例因并发症3变异'],
       loading: false,
       errorTemplateWorks: [],
       templateIndex: 0,
@@ -359,6 +382,11 @@ export default {
 
 
     },
+    cardStyle (item, index) {
+      return {
+        backgroundColor: this.colors[index]
+      }
+    },
     nextStep () {
       this.templateIndex = (this.templateIndex + 1) % 3
     },
@@ -465,5 +493,13 @@ export default {
 .btn-wrapper {
   width: 100%;
   display: flex;
+}
+.recommand {
+  width: 50%;
+}
+.label-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>
