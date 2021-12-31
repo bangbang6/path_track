@@ -2,10 +2,15 @@ import axios from 'axios'
 import { MessageBox, Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
-
+let baseURL = ''
+if (process.env.NODE_ENV === "development") {
+  baseURL = 'http://101.201.49.180:8080/backend'
+}else {
+  baseURL='http://101.201.49.180:8080/backend'
+}
 // create an axios instance
 const service = axios.create({
-  baseURL: 'http://101.201.49.180:8080/backend',
+  baseURL: baseURL,
   // baseURL: 'http://4py2535603.qicp.vip/',
   // baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
   withCredentials: true, // send cookies when cross-domain requests
