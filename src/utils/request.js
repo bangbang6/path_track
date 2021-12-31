@@ -5,7 +5,7 @@ import { getToken } from '@/utils/auth'
 
 // create an axios instance
 const service = axios.create({
-  baseURL: 'http://101.201.49.180:8080',
+  baseURL: 'http://101.201.49.180:8080/backend',
   // baseURL: 'http://4py2535603.qicp.vip/',
   // baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
   withCredentials: true, // send cookies when cross-domain requests
